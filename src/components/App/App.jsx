@@ -1,6 +1,8 @@
 import {lazy} from 'react'
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "components/Layout/Layout";
+import { LayoutLogin } from 'components/LayoutLogin/LayoutLogin';
+import SignInOutContainer from 'components/LoginForm/Contaoner/Index';
 
 
 const Home = lazy(() => import('../../Pages/Home'));
@@ -16,6 +18,9 @@ export const App = () => {
     return (
       <>
         <Routes>
+          <Route path='log' element={ <LayoutLogin /> }>
+            <Route index element={ <SignInOutContainer/>} />
+          </Route>
           <Route path="/" element={ <Layout /> }>
             <Route index element={ <Home /> } />
             <Route path="contact/:id" element={ <ContactDetails /> } >
@@ -24,6 +29,7 @@ export const App = () => {
             </Route>
             <Route path="addContact" element={ <AddContacts />} />
           </Route>
+          
         </Routes>
       </>
     )
