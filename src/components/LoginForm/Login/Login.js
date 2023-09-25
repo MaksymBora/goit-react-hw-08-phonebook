@@ -110,6 +110,7 @@ const SignIn = ({ handleChange }) => {
                       </InputAdornment>
                     }
                     label="Password"
+                    autoComplete="on"
                   />
                 </FormControl>
                 <ErrorMessage name="password" />

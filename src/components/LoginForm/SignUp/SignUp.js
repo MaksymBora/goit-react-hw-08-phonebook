@@ -76,8 +76,10 @@ const SignUp = () => {
           <Avatar style={avatarStyle}>
             <AddCircleOutlineOutlinedIcon />
           </Avatar>
-          <span>Sign Up</span>
-          <Typography variant="caption" component="span" sx={{ width: '100%' }}>
+          <span style={{ display: 'block', width: '100%', marginTop: '12px' }}>
+            Sign Up
+          </span>
+          <Typography variant="caption">
             Please fill this form to create an account
           </Typography>
         </Grid>
@@ -92,7 +94,7 @@ const SignUp = () => {
               <Field
                 as={TextField}
                 sx={{ mt: 3 }}
-                id="outlined-basic"
+                id="outlined-basic-name"
                 name="name"
                 label="Name"
                 variant="outlined"
@@ -104,7 +106,7 @@ const SignUp = () => {
               <Field
                 as={TextField}
                 sx={{ mt: 3 }}
-                id="outlined-basic"
+                id="outlined-basic-email"
                 name="email"
                 label="Email"
                 variant="outlined"
@@ -121,6 +123,7 @@ const SignUp = () => {
                 <Field
                   as={RadioGroup}
                   aria-labelledby="gender"
+                  id="outlined-basic-gender"
                   name="gender"
                   style={{ display: 'initial' }}
                 >
@@ -143,37 +146,39 @@ const SignUp = () => {
               <Field
                 as={TextField}
                 sx={{ mt: 3 }}
-                id="outlined-basic"
+                id="outlined-basic-number"
                 label="Phone Number"
-                name="phoneNumber"
+                name="number"
                 variant="outlined"
                 type="tel"
                 placeholder="Enter phone number"
                 fullWidth
               />
-              <ErrorMessage name="phoneNumber" />
+              <ErrorMessage name="number" />
               <Field
                 as={TextField}
                 sx={{ mt: 3 }}
-                id="outlined-basic"
+                id="reg-password"
                 type="password"
                 name="password"
                 label="Password"
                 variant="outlined"
                 placeholder="Enter password"
                 fullWidth
+                autoComplete="on"
               />
               <ErrorMessage name="password" />
               <Field
                 as={TextField}
                 sx={{ mt: 3 }}
-                id="outlined-basic"
+                id="conf-password"
                 type="password"
                 name="confirmPassword"
                 label="Confirm Password"
                 variant="outlined"
                 placeholder="Confirm password"
                 fullWidth
+                autoComplete="on"
               />
               <ErrorMessage name="confirmPassword" />
               <FormControlLabel

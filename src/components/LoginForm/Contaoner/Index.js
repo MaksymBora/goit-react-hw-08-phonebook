@@ -29,7 +29,7 @@ const SignInOutContainer = () => {
       >
         {value === index && (
           <Box>
-            <Typography>{children}</Typography>
+            <Typography component="span">{children}</Typography>
           </Box>
         )}
       </div>
