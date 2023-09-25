@@ -36,3 +36,9 @@ export const Title = styled.div`
     font-size: 28px;
   }
 `;
+
+export const LoginBtnsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;

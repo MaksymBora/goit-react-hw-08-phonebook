@@ -1,5 +1,10 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Title, Wrapper, HeaderWrapper } from './Header.styled';
+import {
+  Title,
+  Wrapper,
+  HeaderWrapper,
+  LoginBtnsWrapper,
+} from './Header.styled';
 import { Filter } from 'components/Filter/Filter';
 import { CreateContact } from 'components/CreateContact/CreateContactBtn';
 import { Link } from 'react-router-dom';
@@ -17,10 +22,10 @@ export const Header = () => {
       </Link>
       <Filter />
       <CreateContact />
-      <div>
+      <LoginBtnsWrapper>
         <LoginBtn />
         <LogoutBtn />
-      </div>
+      </LoginBtnsWrapper>
     </HeaderWrapper>
   );
 };
