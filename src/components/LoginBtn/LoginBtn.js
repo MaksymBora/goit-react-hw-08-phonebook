@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 import { StyledLink } from './LoginBtn.style';
 
