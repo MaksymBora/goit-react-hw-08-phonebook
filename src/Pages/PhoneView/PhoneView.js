@@ -2,7 +2,7 @@ import { FiPhone } from 'react-icons/fi';
 import { DetailsWrapper, PhoneNumberWrapper } from './PhoneView.styled';
 import { useSelector } from 'react-redux';
 
-import { selectContactById } from 'redux/selectors';
+import { selectContactById } from 'redux/contacts/selectors';
 
 const PhoneView = () => {
   const currentContact = useSelector(selectContactById);

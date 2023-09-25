@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { selectCurrentContact } from 'redux/selectors';
+import { selectCurrentContact } from 'redux/contacts/selectors';
 import {
   StyledForm,
   Wrapper,
@@ -15,7 +15,7 @@ import { TextField } from '@mui/material';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import toast from 'react-hot-toast';
-import { editContact } from 'redux/thunk';
+import { editContact } from 'redux/contacts/thunk';
 
 const ContactsSchema = Yup.object().shape({
   name: Yup.string().required('* Name is required'),

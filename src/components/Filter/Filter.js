@@ -3,8 +3,8 @@ import { Paper, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { SearchStyled, PaperStyledSearch } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactsFilter } from 'redux/filterSlice';
-import { selectFilteredContact } from 'redux/selectors';
+import { contactsFilter } from 'redux/contacts/filterSlice';
+import { selectFilteredContact } from 'redux/contacts/selectors';
 
 export const Filter = () => {
   const nameFromFilter = useSelector(selectFilteredContact);
