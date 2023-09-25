@@ -17,6 +17,8 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import FormHelperText from '@mui/material/FormHelperText';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 
 const SignUp = () => {
   const paperStyle = {
@@ -59,9 +61,17 @@ const SignUp = () => {
     ),
   });
 
+  const dispatch = useDispatch();
+
   const onSubmit = (values, props) => {
-    console.log(values);
     console.log(props);
+    dispatch(
+      register({
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      })
+    );
     setTimeout(() => {
       props.resetForm();
       props.setSubmitting(false);
