@@ -64,14 +64,16 @@ const SignUp = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (values, props) => {
-    console.log(props);
+    const { name, email, password } = values;
+
     dispatch(
       register({
-        name: values.name,
-        email: values.email,
-        password: values.password,
+        name,
+        email,
+        password,
       })
     );
+
     setTimeout(() => {
       props.resetForm();
       props.setSubmitting(false);
