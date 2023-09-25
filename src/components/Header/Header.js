@@ -3,6 +3,8 @@ import { Title, Wrapper, HeaderWrapper } from './Header.styled';
 import { Filter } from 'components/Filter/Filter';
 import { CreateContact } from 'components/CreateContact/CreateContactBtn';
 import { Link } from 'react-router-dom';
+import { LoginBtn } from 'components/LoginBtn/LoginBtn';
+import { LogoutBtn } from 'components/LogoutBtn/LogoutBtn';
 
 export const Header = () => {
   return (
@@ -15,6 +17,10 @@ export const Header = () => {
       </Link>
       <Filter />
       <CreateContact />
+      <div>
+        <LoginBtn />
+        <LogoutBtn />
+      </div>
     </HeaderWrapper>
   );
 };

@@ -18,7 +18,7 @@ export const App = () => {
     return (
       <>
         <Routes>
-          <Route path='log' element={ <LayoutLogin /> }>
+          <Route path='login' element={ <LayoutLogin /> }>
             <Route index element={ <SignInOutContainer/>} />
           </Route>
           <Route path="/" element={ <Layout /> }>
