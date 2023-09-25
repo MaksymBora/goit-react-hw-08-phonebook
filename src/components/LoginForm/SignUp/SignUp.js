@@ -32,7 +32,7 @@ const SignUp = () => {
     name: '',
     email: '',
     gender: '',
-    phoneNumber: '',
+    number: '',
     password: '',
     confirmPassword: '',
     termAndConditions: false,
@@ -44,7 +44,7 @@ const SignUp = () => {
     gender: Yup.string()
       .oneOf(['male', 'female'], 'Required')
       .required('Required'),
-    phoneNumber: Yup.number()
+    number: Yup.number()
       .typeError('Enter valid phone number')
       .required('Required'),
     password: Yup.string()
