@@ -41,8 +41,6 @@ const ContactEdit = () => {
 
     dispatch(editContact(updatedContact));
 
-    navigate(-1);
-
     toast.success(
       <div>
         Contact <b>{values.name}</b> updated!
@@ -52,6 +50,7 @@ const ContactEdit = () => {
         icon: '✅',
       }
     );
+    navigate(-1);
   };
 
   return (

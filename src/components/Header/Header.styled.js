@@ -69,3 +69,11 @@ export const LoginBtnsWrapper = styled.div`
   align-items: center;
   gap: 10px;
 `;
+
+export const StyledUserEmail = styled.p`
+  font-size: 16px;
+
+  @media screen and (min-width: 767px) {
+    font-size: 18px;
+  }
+`;

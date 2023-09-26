@@ -7,6 +7,7 @@ import { selectContacts } from 'redux/contacts/selectors';
 const PhoneView = () => {
   const allContacts = useSelector(selectContacts);
   const { id } = useParams();
+
   const currentContact = allContacts.find(contact => contact.id === id);
 
   return (

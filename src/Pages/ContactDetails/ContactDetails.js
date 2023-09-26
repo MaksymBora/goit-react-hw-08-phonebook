@@ -1,4 +1,4 @@
-import { Suspense, useRef } from 'react';
+import { Suspense, useEffect, useRef } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -16,7 +16,7 @@ import {
 } from './ContactDetails.styled';
 import { TbArrowBackUp } from 'react-icons/tb';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { removeContact } from 'redux/contacts/thunk';
+import { getAllContactsThunk, removeContact } from 'redux/contacts/thunk';
 import CircularProgress from '@mui/material/CircularProgress';
 import { selectContacts } from 'redux/contacts/selectors';
 
@@ -24,12 +24,13 @@ const ContactDetails = () => {
   const location = useLocation();
   const allContacts = useSelector(selectContacts);
   const { id } = useParams();
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentContact = allContacts.find(contact => contact.id === id);
 
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
+  useEffect(() => {
+    dispatch(getAllContactsThunk());
+  }, [dispatch]);
 
   const backLinkLocation = useRef(location.state?.from ?? '/');
 
