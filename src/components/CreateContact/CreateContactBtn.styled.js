@@ -11,6 +11,20 @@ export const PaperStyled = styled(Paper)`
   &:hover {
     box-shadow: -1px 5px 8px -2px rgba(0, 0, 0, 0.65);
   }
+
+  @media screen and (min-width: 767px) {
+    max-width: 110px;
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 150px;
+    margin-left: 0;
+    font-size: 14px;
+    padding: 12px 10px 12px 10px;
+  }
 `;
 
 export const StyledLink = styled(Link)`

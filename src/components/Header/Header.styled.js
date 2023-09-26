@@ -10,6 +10,12 @@ export const HeaderWrapper = styled.header`
   position: sticky;
   background-color: rgba(255, 255, 255, 1);
   padding: 0 16px;
+  visibility: visible;
+
+  .LoginBtnsWrapperDesk {
+    visibility: hidden;
+    display: none;
+  }
 
   @media screen and (min-width: 767px) {
     padding-bottom: 10px;
@@ -18,6 +24,27 @@ export const HeaderWrapper = styled.header`
     gap: 0px;
     justify-content: space-between;
     padding: 0;
+
+    .LoginBtnsWrapper {
+      display: none;
+      visibility: hidden;
+    }
+
+    .LoginBtnsWrapperDesk {
+      display: flex;
+      visibility: visible;
+    }
+  }
+`;
+
+export const LogoAndBtnsWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 767px) {
+    width: auto;
   }
 `;
 

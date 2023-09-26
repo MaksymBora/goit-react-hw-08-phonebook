@@ -4,6 +4,7 @@ import {
   Wrapper,
   HeaderWrapper,
   LoginBtnsWrapper,
+  LogoAndBtnsWrapper,
 } from './Header.styled';
 import { Filter } from 'components/Filter/Filter';
 import { CreateContact } from 'components/CreateContact/CreateContactBtn';
@@ -17,19 +18,24 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Link to="/" style={{ textDecoration: 'none', color: '#696969' }}>
-        <Wrapper>
-          <AccountCircleIcon sx={{ fontSize: 50, color: '#47A76A' }} />
-          <Title>Phonebook</Title>
-        </Wrapper>
-      </Link>
+      <LogoAndBtnsWrapper>
+        <Link to="/" style={{ textDecoration: 'none', color: '#696969' }}>
+          <Wrapper>
+            <AccountCircleIcon sx={{ fontSize: 50, color: '#47A76A' }} />
+            <Title>Phonebook</Title>
+          </Wrapper>
+        </Link>
+        <LoginBtnsWrapper className="LoginBtnsWrapper">
+          {isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
+        </LoginBtnsWrapper>
+      </LogoAndBtnsWrapper>
       {isLoggedIn && (
         <>
           <Filter /> <CreateContact />
         </>
       )}
 
-      <LoginBtnsWrapper>
+      <LoginBtnsWrapper className="LoginBtnsWrapperDesk">
         {isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
       </LoginBtnsWrapper>
     </HeaderWrapper>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 10px;
@@ -10,7 +10,7 @@ export const Container = styled.div`
   padding-bottom: 32px;
 
   @media screen and (min-width: 767px) {
-    width: 746px;
+    min-width: 746px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 15px;
