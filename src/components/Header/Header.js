@@ -7,7 +7,7 @@ import {
   LogoAndBtnsWrapper,
 } from './Header.styled';
 import { Filter } from 'components/Filter/Filter';
-import { CreateContact } from 'components/CreateContact/CreateContactBtn';
+import { CreateContact } from 'components/CreateContactBtn/CreateContactBtn';
 import { Link } from 'react-router-dom';
 import { LoginBtn } from 'components/LoginBtn/LoginBtn';
 import { LogoutBtn } from 'components/LogoutBtn/LogoutBtn';
