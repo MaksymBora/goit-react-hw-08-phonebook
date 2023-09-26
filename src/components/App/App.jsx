@@ -5,6 +5,7 @@ import { LayoutLogin } from 'components/LayoutLogin/LayoutLogin';
 import SignInOutContainer from 'components/LoginForm/Contaoner/Index';
 
 
+
 const Home = lazy(() => import('../../Pages/Home'));
 const ContactDetails = lazy(() => import('../../Pages/ContactDetails/ContactDetails'));
 const PhoneView = lazy(() => import('../../Pages/PhoneView/PhoneView'));
@@ -13,8 +14,6 @@ const AddContacts = lazy(() => import('../../Pages/AddContacts/AddContacts'));
 
 export const App = () => {
 
-
-    
     return (
       <>
         <Routes>

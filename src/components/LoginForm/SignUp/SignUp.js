@@ -20,6 +20,34 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
+const initialValues = {
+  name: '',
+  email: '',
+  gender: '',
+  number: '',
+  password: '',
+  confirmPassword: '',
+  termAndConditions: false,
+};
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().min(3, 'It`s too short').required('Required'),
+  email: Yup.string().email('Enter valid email').required('Required'),
+  gender: Yup.string()
+    .oneOf(['male', 'female'], 'Required')
+    .required('Required'),
+  number: Yup.number()
+    .typeError('Enter valid phone number')
+    .required('Required'),
+  password: Yup.string()
+    .min(8, 'Password minimum length should be 8')
+    .required('Required'),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password')], 'Password not matched')
+    .required('Required'),
+  termAndConditions: Yup.string().oneOf(['true'], 'Accept terms & conditions'),
+});
+
 const SignUp = () => {
   const paperStyle = {
     padding: '20px',
@@ -29,37 +57,6 @@ const SignUp = () => {
   };
 
   const avatarStyle = { backgroundColor: '#1bbd7e' };
-
-  const initialValues = {
-    name: '',
-    email: '',
-    gender: '',
-    number: '',
-    password: '',
-    confirmPassword: '',
-    termAndConditions: false,
-  };
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().min(3, 'It`s too short').required('Required'),
-    email: Yup.string().email('Enter valid email').required('Required'),
-    gender: Yup.string()
-      .oneOf(['male', 'female'], 'Required')
-      .required('Required'),
-    number: Yup.number()
-      .typeError('Enter valid phone number')
-      .required('Required'),
-    password: Yup.string()
-      .min(8, 'Password minimum length should be 8')
-      .required('Required'),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password')], 'Password not matched')
-      .required('Required'),
-    termAndConditions: Yup.string().oneOf(
-      ['true'],
-      'Accept terms & conditions'
-    ),
-  });
 
   const dispatch = useDispatch();
 
@@ -123,6 +120,7 @@ const SignUp = () => {
                 label="Email"
                 variant="outlined"
                 placeholder="Enter email"
+                type="email"
                 fullWidth
               />
               <ErrorMessage name="email" />

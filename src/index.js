@@ -5,18 +5,21 @@ import { ThemeProvider } from 'styled-components';
 import { App } from 'components/App/App';
 import { GlobalStyle } from './components/styleTheme/GlobalStyle';
 import { theme } from './components/styleTheme/theme';
-import { store } from 'redux/store';
+import { persistor, store } from 'redux/store';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/goit-react-hw-08-phonebook">
-      <Provider store={store}>
+    <Provider store={store}>
+      <BrowserRouter basename="/goit-react-hw-08-phonebook">
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <App />
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
         </ThemeProvider>
-      </Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

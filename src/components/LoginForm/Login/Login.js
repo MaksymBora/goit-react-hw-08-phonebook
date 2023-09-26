@@ -20,9 +20,17 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
+
+const initialValues = {
+  email: '',
+  password: '',
+  remember: false,
+};
 
 const validationSchema = Yup.object().shape({
-  username: Yup.string().email('Please enter valid email').required('Required'),
+  email: Yup.string().email('Please enter valid email').required('Required'),
   password: Yup.string().required('Required'),
 });
 
@@ -38,8 +46,12 @@ const SignIn = ({ handleChange }) => {
   const avatarStyle = { backgroundColor: '#1bbd7e', marginBottom: '16px' };
   const btnstyle = { margin: '8px 0' };
 
+  const dispatch = useDispatch();
+
   const onSubmit = (values, props) => {
-    console.log(values);
+    const { email, password } = values;
+
+    dispatch(logIn(email, password));
 
     setTimeout(() => {
       props.resetForm();
@@ -47,11 +59,6 @@ const SignIn = ({ handleChange }) => {
     }, 2000);
   };
 
-  const initialValues = {
-    username: '',
-    password: '',
-    remember: false,
-  };
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const handleMouseDownPassword = event => {
@@ -71,30 +78,30 @@ const SignIn = ({ handleChange }) => {
 
           <Formik
             initialValues={initialValues}
-            onSubmit={onSubmit}
             validationSchema={validationSchema}
+            onSubmit={onSubmit}
           >
             {props => (
               <Form>
                 <Field
                   as={TextField}
                   sx={{ mt: 3 }}
-                  id="outlined-basic"
-                  name="username"
+                  id="basic-email"
+                  name="email"
                   label="Login"
                   variant="outlined"
-                  placeholder="Enter username"
-                  type="text"
+                  placeholder="Enter email"
+                  type="email"
                   fullWidth
                 />
-                <ErrorMessage name="username" />
+                <ErrorMessage name="email" />
                 <FormControl sx={{ mt: 2, width: '100%' }} variant="outlined">
                   <InputLabel htmlFor="outlined-adornment-password">
                     Password
                   </InputLabel>
                   <Field
                     as={OutlinedInput}
-                    id="outlined-adornment-password"
+                    id="ador-password"
                     name="password"
                     type={showPassword ? 'text' : 'password'}
                     endAdornment={

@@ -10,8 +10,11 @@ import { CreateContact } from 'components/CreateContact/CreateContactBtn';
 import { Link } from 'react-router-dom';
 import { LoginBtn } from 'components/LoginBtn/LoginBtn';
 import { LogoutBtn } from 'components/LogoutBtn/LogoutBtn';
+import { useAuth } from 'hook';
 
 export const Header = () => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <HeaderWrapper>
       <Link to="/" style={{ textDecoration: 'none', color: '#696969' }}>
@@ -20,11 +23,14 @@ export const Header = () => {
           <Title>Phonebook</Title>
         </Wrapper>
       </Link>
-      <Filter />
-      <CreateContact />
+      {isLoggedIn && (
+        <>
+          <Filter /> <CreateContact />
+        </>
+      )}
+
       <LoginBtnsWrapper>
-        <LoginBtn />
-        <LogoutBtn />
+        {isLoggedIn ? <LogoutBtn /> : <LoginBtn />}
       </LoginBtnsWrapper>
     </HeaderWrapper>
   );
