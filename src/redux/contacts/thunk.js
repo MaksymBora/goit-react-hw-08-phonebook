@@ -54,15 +54,3 @@ export const editContact = createAsyncThunk(
     }
   }
 );
-
-// export const getContactById = createAsyncThunk(
-//   'contacts/getContactById',
-//   async (id, thunkAPI) => {
-//     try {
-//       const response = await fetchContactbyId(id);
-//       return response;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
