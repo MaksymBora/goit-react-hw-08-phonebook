@@ -8,13 +8,3 @@ export const PrivateRoute = ({ component: Component, redirectTo }) => {
 
   return shouldRedirect ? <Navigate to={redirectTo} /> : <Component />;
 };
-
-export const ProtectedRoute = ({ children }) => {
-  const { isLoggedIn, isRefreshing } = useAuth();
-  const shouldRedirect = !isRefreshing && isLoggedIn;
-  if (!shouldRedirect) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
-};
