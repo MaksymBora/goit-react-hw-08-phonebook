@@ -6,6 +6,9 @@ import SignInOutContainer from 'components/LoginForm/Contaoner/Index';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hook';
+import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
+import { PrivateRoute, ProtectedRoute } from 'components/PrivateRoute.js/PrivateRoute';
+
 
 
 const Home = lazy(() => import('../../Pages/Home'));
@@ -25,16 +28,14 @@ export const App = () => {
     return isRefreshing ? (<div>Loading...</div>) : (
       <>
         <Routes>
-          <Route path='login' element={ <LayoutLogin /> }>
-            <Route index element={ <SignInOutContainer/>} />
-          </Route>
-          <Route path="/" element={ <Layout /> }>
-            <Route index element={ <Home /> } />
+          <Route path="/" element={ <Layout/> }> 
+            <Route index element={<ProtectedRoute><Home/></ProtectedRoute>} />
             <Route path="contact/:id" element={ <ContactDetails /> } >
               <Route index element={ <PhoneView/>} />
               <Route path="edit" element={ <ContactEdit/>} />
             </Route>
-            <Route path="addContact" element={ <AddContacts />} />
+            <Route path="addContact" element={ <AddContacts /> } />
+            <Route path="login" element={ <RestrictedRoute component={ SignInOutContainer } redirectTo="/"/> }  />
           </Route>
           
         </Routes>

@@ -1,4 +1,5 @@
 import { ContactList } from 'components/ContactsList/ContactsList';
+import { PrivateRoute } from 'components/PrivateRoute.js/PrivateRoute';
 import { useLocation } from 'react-router-dom';
 
 const Home = () => {
