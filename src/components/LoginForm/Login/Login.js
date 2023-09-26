@@ -51,7 +51,7 @@ const SignIn = ({ handleChange }) => {
   const onSubmit = (values, props) => {
     const { email, password } = values;
 
-    dispatch(logIn(email, password));
+    dispatch(logIn({ email, password }));
 
     setTimeout(() => {
       props.resetForm();
