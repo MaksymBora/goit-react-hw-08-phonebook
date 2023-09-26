@@ -11,10 +11,13 @@ import { Link } from 'react-router-dom';
 import { LoginBtn } from 'components/LoginBtn/LoginBtn';
 import { LogoutBtn } from 'components/LogoutBtn/LogoutBtn';
 import { useAuth } from 'hook';
+// import { useSelector } from 'react-redux';
+// import { selectEmail } from 'redux/auth/selectors';
 
 export const Header = () => {
   const { isLoggedIn } = useAuth();
-
+  // const userName = useSelector(selectEmail);
+  // console.log(userName);
   return (
     <HeaderWrapper>
       <Link to="/" style={{ textDecoration: 'none', color: '#696969' }}>

@@ -1,9 +1,11 @@
-import {lazy} from 'react'
+import {lazy, useEffect} from 'react'
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "components/Layout/Layout";
 import { LayoutLogin } from 'components/LayoutLogin/LayoutLogin';
 import SignInOutContainer from 'components/LoginForm/Contaoner/Index';
-
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/auth/operations';
+import { useAuth } from 'hook';
 
 
 const Home = lazy(() => import('../../Pages/Home'));
@@ -13,8 +15,14 @@ const ContactEdit = lazy(() => import('../../Pages/ContactEdit/ContactEdit'));
 const AddContacts = lazy(() => import('../../Pages/AddContacts/AddContacts'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
-    return (
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+    return isRefreshing ? (<div>Loading...</div>) : (
       <>
         <Routes>
           <Route path='login' element={ <LayoutLogin /> }>
