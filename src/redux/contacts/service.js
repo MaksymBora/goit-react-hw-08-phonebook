@@ -16,11 +16,11 @@ export const deleteContacts = async id => {
 };
 
 export const updateContacts = async (id, { name, number }) => {
-  const response = await axios.patch(`/contacts/${id}`, { name, number, id });
+  const response = await axios.patch(`/contacts/${id}`, { name, number });
   return response.data;
 };
 
-export const fetchContactbyId = async id => {
-  const response = await axios.get(`/contacts/${id}`);
-  return response.data;
-};
+// export const fetchContactbyId = async id => {
+//   const response = await axios.get(`/contacts/${id}`);
+//   return response.data;
+// };

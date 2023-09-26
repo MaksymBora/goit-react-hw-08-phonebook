@@ -1,13 +1,12 @@
 import {lazy, useEffect} from 'react'
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "components/Layout/Layout";
-import { LayoutLogin } from 'components/LayoutLogin/LayoutLogin';
 import SignInOutContainer from 'components/LoginForm/Contaoner/Index';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hook';
 import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
-import { PrivateRoute, ProtectedRoute } from 'components/PrivateRoute.js/PrivateRoute';
+import { ProtectedRoute } from 'components/PrivateRoute.js/PrivateRoute';
 
 
 
@@ -37,7 +36,6 @@ export const App = () => {
             <Route path="addContact" element={ <AddContacts /> } />
             <Route path="login" element={ <RestrictedRoute component={ SignInOutContainer } redirectTo="/"/> }  />
           </Route>
-          
         </Routes>
       </>
     )

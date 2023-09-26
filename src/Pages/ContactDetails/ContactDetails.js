@@ -1,7 +1,7 @@
-import { Suspense, useEffect, useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactById } from 'redux/contacts/selectors';
+
 import {
   BackBtn,
   AvatarWrapper,
@@ -16,20 +16,18 @@ import {
 } from './ContactDetails.styled';
 import { TbArrowBackUp } from 'react-icons/tb';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { getContactById, removeContact } from 'redux/contacts/thunk';
+import { removeContact } from 'redux/contacts/thunk';
 import CircularProgress from '@mui/material/CircularProgress';
+import { selectContacts } from 'redux/contacts/selectors';
 
 const ContactDetails = () => {
   const location = useLocation();
+  const allContacts = useSelector(selectContacts);
   const { id } = useParams();
 
-  const currentContact = useSelector(selectContactById);
+  const currentContact = allContacts.find(contact => contact.id === id);
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getContactById(id));
-  }, [dispatch, id]);
 
   const navigate = useNavigate();
 
