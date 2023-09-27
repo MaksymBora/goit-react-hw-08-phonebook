@@ -15,6 +15,11 @@ export const lightColors = {
     black: '#000000',
     hoverBtns: 'rgb(99,230,120)',
     hoverBtnContactList: '#00000051',
+    formLoginactive: '#1976d2',
+    activeBorder: '#1976d2',
+    loginInputBg: '#ffffff',
+    borderLoginForm: 'rgba(0, 0, 0, 0.23)',
+    formLabelText: '#1976d2',
   },
 };
 
@@ -29,6 +34,9 @@ export const darkColors = {
     white: '#ffffff',
     formBorder: '#1976d2',
     hoverBtns: 'rgb(99,230,120)',
+    activeBorder: 'green',
+    loginInputBg: '#212121',
+    borderLoginForm: '#ffffff',
   },
 };
 
@@ -59,6 +67,15 @@ export const lightTheme = {
       text: lightColors.colors.textPrimary,
       icon: lightColors.colors.textPrimary,
       hover: lightColors.colors.hoverBtns,
+    },
+    loginForm: {
+      text: lightColors.colors.black,
+      bg: lightColors.colors.white,
+      btnActive: lightColors.colors.formLoginactive,
+      borderActive: lightColors.colors.activeBorder,
+      inputBg: lightColors.colors.loginInputBg,
+      border: lightColors.colors.borderLoginForm,
+      label: lightColors.colors.formLabelText,
     },
   },
   media,
@@ -91,6 +108,15 @@ export const darkTheme = {
       text: darkColors.colors.white,
       icon: darkColors.colors.white,
       hover: darkColors.colors.hoverBtns,
+    },
+    loginForm: {
+      text: darkColors.colors.white,
+      bg: darkColors.colors.black,
+      btnActive: darkColors.colors.hoverBtns,
+      borderActive: darkColors.colors.activeBorder,
+      inputBg: darkColors.colors.loginInputBg,
+      border: darkColors.colors.borderLoginForm,
+      label: darkColors.colors.white,
     },
   },
   media,

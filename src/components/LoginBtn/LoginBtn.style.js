@@ -13,7 +13,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${props => props.theme.colors.header.text};
   background-color: ${props => props.theme.colors.header.btnBg};
-  margin-bottom: 32px;
+  margin-bottom: -15px;
 
   transition: box-shadow 250ms ease-in-out, color 250ms ease-in-out;
 
@@ -23,6 +23,6 @@ export const StyledLink = styled(Link)`
   }
 
   @media screen and (min-width: ${props => props.theme.media.m}) {
-    margin: 0;
+    margin-bottom: 0px;
   }
 `;

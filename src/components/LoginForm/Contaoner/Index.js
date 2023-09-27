@@ -2,18 +2,13 @@ import React, { useState } from 'react';
 import { Box, Paper, Tab, Tabs, Typography } from '@mui/material';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
+import { StyledPaper } from './Index.styled';
 
 const AuthUserForm = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-
-  const paperStyle = {
-    width: 320,
-    margin: '20px auto',
-    boxShadow: '1px 4px 11px 2px rgba(255, 255, 255, 0.75)',
   };
 
   function CustomTabPanel(props) {
@@ -38,7 +33,7 @@ const AuthUserForm = () => {
 
   return (
     <>
-      <Paper style={paperStyle}>
+      <StyledPaper>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -60,7 +55,7 @@ const AuthUserForm = () => {
         <CustomTabPanel value={value} index={1}>
           <SignUp />
         </CustomTabPanel>
-      </Paper>
+      </StyledPaper>
     </>
   );
 };
