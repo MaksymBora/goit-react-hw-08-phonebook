@@ -11,6 +11,7 @@ export const HeaderWrapper = styled.header`
   background-color: rgba(255, 255, 255, 1);
   padding: 0 16px;
   visibility: visible;
+  color: ${props => props.theme.colors.header.text};
 
   .LoginBtnsWrapperDesk {
     visibility: hidden;
@@ -42,7 +43,6 @@ export const LogoAndBtnsWrapper = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background-color: ${props => props.theme.colors.header.bg};
 
   @media screen and (min-width: 767px) {
     width: auto;

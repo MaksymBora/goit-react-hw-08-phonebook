@@ -1,4 +1,4 @@
-import {lazy, useEffect, useState} from 'react'
+import {lazy, useEffect} from 'react'
 import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
@@ -19,7 +19,7 @@ const ContactEdit = lazy(() => import('../../Pages/ContactEdit/ContactEdit'));
 const AddContacts = lazy(() => import('../../Pages/AddContacts/AddContacts'));
 
 export const App = () => {
-  // const [userTheme, setUserTheme] = useState(localStorage.getItem('theme') || 'light');
+
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   const userTheme = useSelector(selectTheme);
@@ -27,15 +27,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  
-  //     useEffect(() => {
-  //   if (localStorage.getItem('theme')) {
-  //     const theme = localStorage.getItem('theme');
-  //     setUserTheme(theme);
-  //   }
-  //     }, [userTheme]);
-  
-  // console.log(userTheme)
+
   
   
 

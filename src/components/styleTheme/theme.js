@@ -1,18 +1,21 @@
-export const theme = {
+export const lightColors = {
   colors: {
     white: '#ffffff',
-    textPrimary: '#696969',
+    textPrimary: 'rgb(105, 105, 105)',
+  },
+};
+
+export const darkColors = {
+  colors: {
+    textPrimary: '#ffffff',
     black: '#000000',
-    appBg: 'rgba(227, 253, 211, 0.7)',
-    buttonBg: 'linear-gradient(to right, #d3cce3, #e9e4f0)',
-    bodyBg: 'linear-gradient(to right, #a1ffce, #faffd1)',
   },
 };
 
 export const lightTheme = {
   colors: {
     header: {
-      bg: theme.colors.black,
+      text: lightColors.colors.textPrimary,
     },
   },
 };
@@ -20,7 +23,7 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     header: {
-      bg: theme.colors.textPrimary,
+      text: darkColors.colors.textPrimary,
     },
   },
 };
