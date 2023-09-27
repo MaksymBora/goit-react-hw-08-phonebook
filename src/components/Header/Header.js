@@ -24,7 +24,6 @@ import {
   handleLightTheme,
   selectTheme,
 } from 'redux/userTheme/slice';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({

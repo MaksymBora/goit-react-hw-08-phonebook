@@ -48,6 +48,10 @@ export const MobStyledLink = styled(Link)`
   right: 0;
   bottom: -55vh;
 
+  div {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+  }
+
   @media screen and (min-height: 271px) {
     bottom: -55vh;
   }

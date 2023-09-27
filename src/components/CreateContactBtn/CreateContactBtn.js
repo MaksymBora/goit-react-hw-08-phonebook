@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import {
   PaperStyled,
   StyledLink,
@@ -7,6 +8,12 @@ import {
 } from './CreateContactBtn.styled';
 
 export const CreateContact = () => {
+  const location = useLocation();
+
+  const pathParts = location.pathname.split('/');
+
+  const addContact = pathParts[pathParts.length - 1];
+
   return (
     <>
       <StyledLink to="/addContact" style={{ textDecoration: 'none' }}>
@@ -26,19 +33,21 @@ export const CreateContact = () => {
       </StyledLink>
 
       <MobStyledLink to="/addContact" style={{ textDecoration: 'none' }}>
-        <PaperStyled
-          elevation={3}
-          sx={{
-            borderRadius: '50%',
-            p: '12px',
-            alignItems: 'center',
-            width: '50px',
-            display: 'flex',
-            backgroundColor: 'transparent',
-          }}
-        >
-          <AddIcontStyled type="button" sx={{ ml: 'auto', mr: 'auto' }} />
-        </PaperStyled>
+        {addContact !== 'addContact' && (
+          <PaperStyled
+            elevation={3}
+            sx={{
+              borderRadius: '50%',
+              p: '12px',
+              alignItems: 'center',
+              width: '50px',
+              display: 'flex',
+            }}
+          >
+            {' '}
+            <AddIcontStyled type="button" sx={{ ml: 'auto', mr: 'auto' }} />
+          </PaperStyled>
+        )}
       </MobStyledLink>
     </>
   );
