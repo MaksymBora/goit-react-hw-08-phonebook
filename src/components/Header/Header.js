@@ -6,6 +6,8 @@ import {
   LoginBtnsWrapper,
   LogoAndBtnsWrapper,
   StyledUserEmail,
+  WrapperTheme,
+  StyledSwitcher,
 } from './Header.styled';
 import { Filter } from 'components/Filter/Filter';
 import { CreateContact } from 'components/CreateContactBtn/CreateContactBtn';
@@ -108,6 +110,8 @@ export const Header = () => {
 
   const dispatch = useDispatch();
 
+  const toggleTheme = currentTheme === 'dark' ? true : false;
+
   const handleThemeChange = () => {
     if (currentTheme === 'light') {
       dispatch(handleDarkTheme());
@@ -119,37 +123,41 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <LogoAndBtnsWrapper>
-        <Link to="/" style={{ textDecoration: 'none', color: '#696969' }}>
-          <Wrapper>
-            {isLoggedIn ? (
-              <StyledBadge
-                overlap="circular"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                variant="dot"
-              >
-                <Avatar
-                  alt="Avatar"
-                  src="https://klike.net/uploads/posts/2019-03/medium/1551512888_2.jpg"
-                  sx={{ width: 50, height: 50 }}
-                />
-              </StyledBadge>
-            ) : (
-              <AccountCircleIcon sx={{ fontSize: 50, color: '#47A76A' }} />
-            )}
+        <WrapperTheme>
+          <Link to="/" style={{ textDecoration: 'none', color: '#696969' }}>
+            <Wrapper>
+              {isLoggedIn ? (
+                <StyledBadge
+                  overlap="circular"
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                  variant="dot"
+                >
+                  <Avatar
+                    alt="Avatar"
+                    src="https://klike.net/uploads/posts/2019-03/medium/1551512888_2.jpg"
+                    sx={{ width: 50, height: 50 }}
+                  />
+                </StyledBadge>
+              ) : (
+                <AccountCircleIcon sx={{ fontSize: 50, color: '#47A76A' }} />
+              )}
 
-            <Title>Phonebook</Title>
-          </Wrapper>
-        </Link>
-        <LoginBtnsWrapper className="LoginBtnsWrapper">
-          <FormControlLabel
-            control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+              <Title>Phonebook</Title>
+            </Wrapper>
+          </Link>
+          <StyledSwitcher
+            control={<MaterialUISwitch sx={{ m: 1 }} />}
             label=""
             onClick={handleThemeChange}
+            sx={{ m: 0 }}
+            checked={toggleTheme}
           />
+        </WrapperTheme>
+        <LoginBtnsWrapper className="LoginBtnsWrapper">
           {isLoggedIn ? (
             <>
-              <StyledUserEmail>{user.email}</StyledUserEmail>
               <LogoutBtn />
+              <StyledUserEmail>{user.email}</StyledUserEmail>
             </>
           ) : (
             <LoginBtn />
@@ -161,13 +169,7 @@ export const Header = () => {
           <Filter /> <CreateContact />
         </>
       )}
-
       <LoginBtnsWrapper className="LoginBtnsWrapperDesk">
-        <FormControlLabel
-          control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-          label=""
-          onClick={handleThemeChange}
-        />
         {isLoggedIn ? (
           <>
             <StyledUserEmail>{user.email}</StyledUserEmail>

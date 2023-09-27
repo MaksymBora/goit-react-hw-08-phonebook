@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import { ThemeProvider } from 'styled-components';
 import { Layout } from "components/Layout/Layout";
-import SignInOutContainer from 'components/LoginForm/Contaoner/Index';
+import AuthUserForm from 'components/LoginForm/Contaoner/Index';
 import { useAuth } from 'hook';
 import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute.js/PrivateRoute';
@@ -56,7 +56,7 @@ export const App = () => {
               <Route path="edit" element={ <ContactEdit /> } />
             </Route>
             <Route path="addContact" element={ <PrivateRoute component={ <AddContacts /> } redirectTo="/login" /> } />
-            <Route path="login" element={ <RestrictedRoute component={ <SignInOutContainer /> } redirectTo="/" /> } />
+            <Route path="login" element={ <RestrictedRoute component={ <AuthUserForm /> } redirectTo="/" /> } />
           </Route>
         </Routes>
       </>

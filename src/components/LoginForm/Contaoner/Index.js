@@ -3,7 +3,7 @@ import { Box, Paper, Tab, Tabs, Typography } from '@mui/material';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 
-const SignInOutContainer = () => {
+const AuthUserForm = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -65,4 +65,4 @@ const SignInOutContainer = () => {
   );
 };
 
-export default SignInOutContainer;
+export default AuthUserForm;

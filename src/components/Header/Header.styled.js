@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 export const HeaderWrapper = styled.header`
   display: flex;
@@ -50,6 +51,22 @@ export const LogoAndBtnsWrapper = styled.div`
   }
 `;
 
+export const WrapperTheme = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 767px) {
+    flex-direction: row;
+    gap: 10px;
+  }
+`;
+
+export const StyledSwitcher = styled(FormControlLabel)`
+  .MuiSwitch-root.MuiSwitch-sizeMedium.css-lu9khh-MuiSwitch-root {
+    margin-left: 0px;
+  }
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -69,12 +86,25 @@ export const Title = styled.div`
 
 export const LoginBtnsWrapper = styled.div`
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: end;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 15px;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  @media screen and (min-width: 767px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 `;
 
 export const StyledUserEmail = styled.p`
-  font-size: 16px;
+  font-size: 14px;
 
   @media screen and (min-width: 767px) {
     font-size: 18px;
