@@ -16,6 +16,12 @@ import { useAuth } from 'hook';
 import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  handleDarkTheme,
+  handleLightTheme,
+  selectTheme,
+} from 'redux/userTheme/slice';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -49,6 +55,17 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 export const Header = () => {
   const { isLoggedIn } = useAuth();
   const { user } = useAuth();
+  const currentTheme = useSelector(selectTheme);
+
+  const dispatch = useDispatch();
+
+  const handleThemeChange = () => {
+    if (currentTheme === 'light') {
+      dispatch(handleDarkTheme());
+    } else {
+      dispatch(handleLightTheme());
+    }
+  };
 
   return (
     <HeaderWrapper>
@@ -94,6 +111,7 @@ export const Header = () => {
       <LoginBtnsWrapper className="LoginBtnsWrapperDesk">
         {isLoggedIn ? (
           <>
+            <button onClick={handleThemeChange}>C</button>
             <StyledUserEmail>{user.email}</StyledUserEmail>
             <LogoutBtn />
           </>

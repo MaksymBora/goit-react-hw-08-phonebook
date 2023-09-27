@@ -8,3 +8,19 @@ export const theme = {
     bodyBg: 'linear-gradient(to right, #a1ffce, #faffd1)',
   },
 };
+
+export const lightTheme = {
+  colors: {
+    header: {
+      bg: theme.colors.black,
+    },
+  },
+};
+
+export const darkTheme = {
+  colors: {
+    header: {
+      bg: theme.colors.textPrimary,
+    },
+  },
+};

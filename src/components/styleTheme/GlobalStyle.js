@@ -7,10 +7,9 @@ body {
   font-family: "DM Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-	background: ${({ theme }) => theme.colors.white};
+	background: #ffffff;
 	margin: 0;
-	color: ${({ theme }) => theme.colors.textPrimary};
-  
+	color: #696969;
   }
 
 code {
