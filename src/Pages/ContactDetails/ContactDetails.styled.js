@@ -13,7 +13,7 @@ export const TopContent = styled.div`
 `;
 
 export const BackBtn = styled(Link)`
-  color: #696969;
+  color: ${props => props.theme.colors.header.text};
   transition: color 250ms ease-in-out;
 
   &:hover {
@@ -51,6 +51,7 @@ export const Avatar = styled.div`
 export const Name = styled.h2`
   font-size: 24px;
   margin-bottom: 12px;
+  color: ${props => props.theme.colors.header.text};
 
   @media screen and (min-width: 767px) {
     font-size: 32px;
