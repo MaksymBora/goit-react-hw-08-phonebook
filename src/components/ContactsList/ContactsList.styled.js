@@ -27,7 +27,7 @@ export const TableHor = styled.th`
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 400;
   font-size: 16px;
-  background-color: ${props => props.theme.colors.contacts.bg};
+  background-color: ${props => props.theme.colors.contactsList.bg};
   color: ${props => props.theme.colors.header.text};
 
   @media screen and (min-width: 767px) {
@@ -54,8 +54,7 @@ export const TableRawContent = styled.tr`
   cursor: pointer;
 
   &:hover {
-    /* background-color: rgba(245, 245, 245, 1); */
-    background-color: ${props => props.theme.colors.contacts.hover};
+    background-color: ${props => props.theme.colors.contactsList.hover};
   }
 
   @media screen and (min-width: 767px) {
@@ -117,7 +116,7 @@ export const EditBtn = styled.button`
   background: transparent;
   margin-right: 10px;
   border: none;
-  color: #00000051;
+  color: ${state => state.theme.colors.contactsList.hoveredBtnColor};
   cursor: pointer;
 
   &:hover {
@@ -129,7 +128,7 @@ export const DeleteBtn = styled.button`
   padding: 4px 6px;
   background: transparent;
   border: none;
-  color: #00000051;
+  color: ${state => state.theme.colors.contactsList.hoveredBtnColor};
   cursor: pointer;
 
   &:hover {
