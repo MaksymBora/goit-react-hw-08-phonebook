@@ -152,6 +152,7 @@ export const Header = () => {
             checked={toggleTheme}
           />
         </WrapperTheme>
+        {/* Mob */}
         <LoginBtnsWrapper className="LoginBtnsWrapper">
           {isLoggedIn ? (
             <>
@@ -162,6 +163,7 @@ export const Header = () => {
             <LoginBtn />
           )}
         </LoginBtnsWrapper>
+        {/* Desktop */}
       </LogoAndBtnsWrapper>
       {isLoggedIn && (
         <>
