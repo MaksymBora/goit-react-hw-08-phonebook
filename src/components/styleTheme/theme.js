@@ -4,6 +4,7 @@ export const lightColors = {
     textPrimary: 'rgb(105, 105, 105)',
     hoverShadow: 'rgba(0, 0, 0, 0.65)',
     border: 'transparent',
+    contactHover: 'rgba(245, 245, 245, 1)',
   },
 };
 
@@ -14,6 +15,7 @@ export const darkColors = {
     hoverShadow: 'rgba(99,230,120,0.75)',
     transparent: 'transparent',
     border: 'rgb(99,230,120)',
+    contactHover: 'rgba(125, 240, 132, 0.75)',
   },
 };
 
@@ -31,6 +33,7 @@ export const lightTheme = {
     },
     contacts: {
       bg: lightColors.colors.white,
+      hover: lightColors.colors.contactHover,
     },
   },
 };
@@ -49,6 +52,7 @@ export const darkTheme = {
     },
     contacts: {
       bg: darkColors.colors.black,
+      hover: darkColors.colors.contactHover,
     },
   },
 };

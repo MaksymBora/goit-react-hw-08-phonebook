@@ -27,7 +27,7 @@ export const Filter = () => {
         display: 'flex',
         alignItems: 'center',
         bgcolor: 'transparent',
-        boxShadow: '0px 2px 14px -1px rgba(0, 0, 0, 0.65)',
+        boxShadow: '0px 2px 5px -1px rgba(0, 0, 0, 0.65)',
         borderRadius: '8px',
         transition: 'background-color 250ms ease-in, box-shadow 250ms ease-in',
       }}

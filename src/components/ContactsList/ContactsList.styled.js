@@ -55,7 +55,7 @@ export const TableRawContent = styled.tr`
 
   &:hover {
     /* background-color: rgba(245, 245, 245, 1); */
-    background-color: rgba(125, 240, 132, 0.75);
+    background-color: ${props => props.theme.colors.contacts.hover};
   }
 
   @media screen and (min-width: 767px) {
