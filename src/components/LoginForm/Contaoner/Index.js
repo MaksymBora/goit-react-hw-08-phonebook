@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Paper, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Tab, Tabs, Typography } from '@mui/material';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import { StyledPaper } from './Index.styled';
