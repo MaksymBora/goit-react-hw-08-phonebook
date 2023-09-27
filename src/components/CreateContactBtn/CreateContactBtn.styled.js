@@ -57,7 +57,7 @@ export const MobStyledLink = styled(Link)`
   }
 
   @media screen and (min-height: 400px) {
-    bottom: -72vh;
+    bottom: -65vh;
   }
 
   @media screen and (min-width: ${props => props.theme.media.m}) {
