@@ -11,6 +11,7 @@ import { PrivateRoute } from 'components/PrivateRoute.js/PrivateRoute';
 import CircularProgress from '@mui/material/CircularProgress';
 import { darkTheme, lightTheme } from 'components/styleTheme/theme';
 import { selectTheme } from 'redux/userTheme/slice';
+import { setMainStyles } from 'components/styleTheme/setMainStyles';
 
 const Home = lazy(() => import('../../Pages/Home'));
 const ContactDetails = lazy(() => import('../../Pages/ContactDetails/ContactDetails'));
@@ -29,7 +30,11 @@ export const App = () => {
   }, [dispatch]);
 
   
+    useEffect(() => {
+    setMainStyles(userTheme);
+    }, [userTheme]);
   
+
 
   return (<ThemeProvider theme={userTheme === 'dark' ? darkTheme : lightTheme}>
     { isRefreshing ? (<div

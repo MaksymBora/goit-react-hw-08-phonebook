@@ -6,18 +6,17 @@ export const StyledBtn = styled.button`
   gap: 5px;
   border-radius: 25px;
   padding: 12px 10px 12px 10px;
-  border: none;
-  background-color: #fff;
+  border: 1px solid ${props => props.theme.colors.header.border};
+  background-color: ${props => props.theme.colors.header.btnBg};
   cursor: pointer;
 
-  color: rgb(105, 105, 105);
+  color: ${props => props.theme.colors.header.text};
   font-size: 18px;
   font-weight: 500;
 
-  transition: box-shadow 250ms ease-in-out, color 250ms ease-in-out;
+  transition: box-shadow 250ms ease-in-out;
 
   &:hover {
-    box-shadow: -1px 5px 8px -2px rgba(0, 0, 0, 0.65);
-    color: #000;
+    box-shadow: 0px 2px 14px -1px ${props => props.theme.colors.header.boxShadowHover};
   }
 `;

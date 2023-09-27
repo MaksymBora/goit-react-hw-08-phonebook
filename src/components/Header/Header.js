@@ -109,9 +109,9 @@ export const Header = () => {
       )}
 
       <LoginBtnsWrapper className="LoginBtnsWrapperDesk">
+        <button onClick={handleThemeChange}>C</button>
         {isLoggedIn ? (
           <>
-            <button onClick={handleThemeChange}>C</button>
             <StyledUserEmail>{user.email}</StyledUserEmail>
             <LogoutBtn />
           </>

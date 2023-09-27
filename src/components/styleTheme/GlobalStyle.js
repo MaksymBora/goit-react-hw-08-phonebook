@@ -10,6 +10,7 @@ body {
 	background: #ffffff;
 	margin: 0;
 	color: #696969;
+ 
   }
 
 code {
@@ -39,4 +40,6 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+
 `;

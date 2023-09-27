@@ -12,6 +12,7 @@ export const HeaderWrapper = styled.header`
   padding: 0 16px;
   visibility: visible;
   color: ${props => props.theme.colors.header.text};
+  background-color: ${props => props.theme.colors.header.bg};
 
   .LoginBtnsWrapperDesk {
     visibility: hidden;
@@ -59,6 +60,7 @@ export const Title = styled.div`
   display: block;
   font-weight: 700;
   font-size: 24px;
+  color: ${props => props.theme.colors.header.text};
 
   @media screen and (min-width: 767px) {
     font-size: 28px;

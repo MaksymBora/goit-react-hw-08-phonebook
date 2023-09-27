@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import { Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
 
 export const PaperStyled = styled(Paper)`
   cursor: pointer;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   font-weight: 500;
+  border: 1px solid ${props => props.theme.colors.header.border};
 
   &:hover {
-    box-shadow: -1px 5px 8px -2px rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 2px 14px -1px ${props => props.theme.colors.header.boxShadowHover};
   }
 
   @media screen and (min-width: 767px) {
@@ -23,7 +25,7 @@ export const PaperStyled = styled(Paper)`
     min-width: 150px;
     margin-left: 0;
     font-size: 14px;
-    padding: 12px 10px 12px 10px;
+    padding: 12px 8px 12px 10px;
   }
 `;
 
@@ -36,7 +38,9 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const BtnText = styled.p``;
+export const BtnText = styled.p`
+  color: ${props => props.theme.colors.header.text};
+`;
 
 export const MobStyledLink = styled(Link)`
   text-decoration: 'none';
@@ -55,4 +59,8 @@ export const MobStyledLink = styled(Link)`
   @media screen and (min-width: 767px) {
     display: none;
   }
+`;
+
+export const AddIcontStyled = styled(AddIcon)`
+  color: ${props => props.theme.colors.header.text};
 `;

@@ -1,9 +1,9 @@
-import AddIcon from '@mui/icons-material/Add';
 import {
   PaperStyled,
   StyledLink,
   BtnText,
   MobStyledLink,
+  AddIcontStyled,
 } from './CreateContactBtn.styled';
 
 export const CreateContact = () => {
@@ -17,9 +17,10 @@ export const CreateContact = () => {
             alignItems: 'center',
             display: 'flex',
             gap: '5px',
+            backgroundColor: 'transparent',
           }}
         >
-          <AddIcon type="button" sx={{ ml: 'auto', mr: 'auto' }} />
+          <AddIcontStyled type="button" sx={{ ml: 'auto', mr: 'auto' }} />
           <BtnText>Create contact</BtnText>
         </PaperStyled>
       </StyledLink>
@@ -33,9 +34,10 @@ export const CreateContact = () => {
             alignItems: 'center',
             width: '50px',
             display: 'flex',
+            backgroundColor: 'transparent',
           }}
         >
-          <AddIcon type="button" sx={{ ml: 'auto', mr: 'auto' }} />
+          <AddIcontStyled type="button" sx={{ ml: 'auto', mr: 'auto' }} />
         </PaperStyled>
       </MobStyledLink>
     </>
