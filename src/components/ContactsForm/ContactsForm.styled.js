@@ -10,11 +10,21 @@ export const StyledForm = styled(Form)`
 
   div {
     width: 100%;
+    color: ${props => props.theme.colors.editContact.text};
+
+    ::before {
+      border-color: ${props => props.theme.colors.editContact.formBorder};
+    }
+
+    ::after {
+      border-color: ${props => props.theme.colors.editContact.hoverBorder};
+    }
   }
 
   svg {
     width: 28px;
     height: 28px;
+    color: ${props => props.theme.colors.editContact.icons};
   }
 
   @media screen and (min-width: 767px) {
@@ -43,6 +53,10 @@ export const InputWrapper = styled.div`
   display: flex;
   align-items: end;
   gap: 10px;
+
+  label {
+    color: ${props => props.theme.colors.editContact.icons};
+  }
 `;
 
 export const Button = styled.button`
@@ -55,17 +69,20 @@ export const Button = styled.button`
   border: none;
   background: transparent;
   text-align: center;
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${props => props.theme.colors.addContact.icon};
   cursor: pointer;
-  transition: transform 250ms ease-in-out, color 250ms ease-in-out;
 
-  &:hover {
-    color: #47a76a;
-    transform: scale(1.1);
-  }
+  svg {
+    transition: transform 250ms ease-in-out, color 250ms ease-in-out;
+    &:hover {
+      color: ${props => props.theme.colors.addContact.hover};
 
-  &:active {
-    color: #47a76a;
-    transform: scale(1.1);
+      transform: scale(1.08);
+    }
+
+    &:active {
+      color: ${props => props.theme.colors.addContact.hover};
+      transform: scale(1.08);
+    }
   }
 `;

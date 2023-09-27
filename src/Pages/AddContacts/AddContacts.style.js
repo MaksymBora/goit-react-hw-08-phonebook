@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 
   h2 {
     margin-bottom: 20px;
+    color: ${props => props.theme.colors.addContact.text};
   }
 
   @media screen and (min-width: 767px) {
@@ -24,7 +25,7 @@ export const AvatarWrapper = styled.div`
 `;
 
 export const BackBtn = styled(Link)`
-  color: #696969;
+  color: ${props => props.theme.colors.header.text};
   transition: color 250ms ease-in-out;
 
   &:hover {
