@@ -19,6 +19,9 @@ export const darkColors = {
 
 export const lightTheme = {
   colors: {
+    mainLayout: {
+      bg: lightColors.colors.white,
+    },
     header: {
       text: lightColors.colors.textPrimary,
       bg: lightColors.colors.white,
@@ -26,7 +29,7 @@ export const lightTheme = {
       boxShadowHover: lightColors.colors.hoverShadow,
       border: lightColors.colors.border,
     },
-    mainLayout: {
+    contacts: {
       bg: lightColors.colors.white,
     },
   },
@@ -34,6 +37,9 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
+    mainLayout: {
+      bg: darkColors.colors.black,
+    },
     header: {
       text: darkColors.colors.textPrimary,
       bg: darkColors.colors.black,
@@ -41,7 +47,7 @@ export const darkTheme = {
       boxShadowHover: darkColors.colors.hoverShadow,
       border: darkColors.colors.border,
     },
-    mainLayout: {
+    contacts: {
       bg: darkColors.colors.black,
     },
   },

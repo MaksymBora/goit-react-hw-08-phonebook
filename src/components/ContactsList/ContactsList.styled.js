@@ -27,6 +27,8 @@ export const TableHor = styled.th`
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 400;
   font-size: 16px;
+  background-color: ${props => props.theme.colors.contacts.bg};
+  color: ${props => props.theme.colors.header.text};
 
   @media screen and (min-width: 767px) {
     font-size: 18px;
@@ -43,6 +45,7 @@ export const TotalContacts = styled.thead`
     padding-top: 14px;
     padding-bottom: 14px;
     font-weight: 500;
+    color: ${props => props.theme.colors.header.text};
   }
 `;
 
@@ -51,7 +54,8 @@ export const TableRawContent = styled.tr`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(245, 245, 245, 1);
+    /* background-color: rgba(245, 245, 245, 1); */
+    background-color: rgba(125, 240, 132, 0.75);
   }
 
   @media screen and (min-width: 767px) {
@@ -80,6 +84,7 @@ export const Name = styled.span`
   padding-bottom: 20px;
   line-height: 24px;
   font-size: 16px;
+  color: ${props => props.theme.colors.header.text};
 
   @media screen and (min-width: 767px) {
     font-size: 18px;
@@ -91,6 +96,7 @@ export const TableDataNumber = styled.td`
   font-size: 18px;
   line-height: 24px;
   font-size: 14px;
+  color: ${props => props.theme.colors.header.text};
 
   @media screen and (min-width: 767px) {
     font-size: 18px;
