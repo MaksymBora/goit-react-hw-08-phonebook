@@ -20,7 +20,7 @@ export const HeaderWrapper = styled.header`
     display: none;
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     padding-bottom: 10px;
     padding-top: 10px;
     flex-direction: row;
@@ -46,7 +46,7 @@ export const LogoAndBtnsWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     width: auto;
   }
 `;
@@ -55,7 +55,7 @@ export const WrapperTheme = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     flex-direction: row;
     gap: 10px;
   }
@@ -79,7 +79,7 @@ export const Title = styled.div`
   font-size: 24px;
   color: ${props => props.theme.colors.header.text};
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 28px;
   }
 `;
@@ -93,7 +93,7 @@ export const LoginBtnsWrapper = styled.div`
   margin-top: auto;
   margin-bottom: auto;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     flex-direction: row;
     align-items: center;
     gap: 10px;
@@ -106,7 +106,7 @@ export const LoginBtnsWrapper = styled.div`
 export const StyledUserEmail = styled.p`
   font-size: 14px;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 18px;
   }
 `;

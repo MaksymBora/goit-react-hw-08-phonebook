@@ -1,3 +1,10 @@
+const media = {
+  xs: '320px',
+  s: '375px',
+  m: '768px',
+  l: '1280px',
+};
+
 export const lightColors = {
   colors: {
     white: '#ffffff',
@@ -54,6 +61,7 @@ export const lightTheme = {
       hover: lightColors.colors.hoverBtns,
     },
   },
+  media,
 };
 
 export const darkTheme = {
@@ -85,4 +93,5 @@ export const darkTheme = {
       hover: darkColors.colors.hoverBtns,
     },
   },
+  media,
 };

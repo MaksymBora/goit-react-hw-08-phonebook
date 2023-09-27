@@ -14,14 +14,14 @@ export const PaperStyled = styled(Paper)`
     box-shadow: 0px 2px 14px -1px ${props => props.theme.colors.header.boxShadowHover};
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     max-width: 110px;
     margin-left: 20px;
     font-size: 14px;
     padding: 6px 12px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: ${props => props.theme.media.l}) {
     min-width: 150px;
     margin-left: 0;
     font-size: 14px;
@@ -33,7 +33,7 @@ export const StyledLink = styled(Link)`
   display: none;
   text-decoration: 'none';
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     display: block;
   }
 `;
@@ -60,7 +60,7 @@ export const MobStyledLink = styled(Link)`
     bottom: -72vh;
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     display: none;
   }
 `;

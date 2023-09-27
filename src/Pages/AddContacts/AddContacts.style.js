@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     color: ${props => props.theme.colors.addContact.text};
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 14px;
   }
 `;
@@ -19,7 +19,7 @@ export const AvatarWrapper = styled.div`
   display: flex;
   gap: 35px;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     gap: 135px;
   }
 `;

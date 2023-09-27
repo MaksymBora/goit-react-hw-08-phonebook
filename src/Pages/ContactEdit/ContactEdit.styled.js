@@ -27,7 +27,7 @@ export const StyledForm = styled(Form)`
     color: ${props => props.theme.colors.editContact.icons};
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     div > div {
       width: 300px;
     }
@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
   font-weight: 500;
   padding: 10px;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     width: 500px;
   }
 `;

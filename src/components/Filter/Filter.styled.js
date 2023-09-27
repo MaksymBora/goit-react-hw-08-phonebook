@@ -12,7 +12,7 @@ export const PaperStyledSearch = styled(InputBase)`
       ${props => props.theme.colors.header.boxShadowHover};
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     width: 300px;
   }
 `;

@@ -7,7 +7,7 @@ export const TopContent = styled.div`
   flex-direction: column;
   padding-top: 30px;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     flex-direction: row;
   }
 `;
@@ -31,7 +31,7 @@ export const AvatarWrapper = styled.div`
   gap: 10px;
   flex-direction: column;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     flex-direction: row;
     gap: 25px;
   }
@@ -42,7 +42,7 @@ export const Avatar = styled.div`
   gap: 20px;
   margin-right: 40px;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     gap: 15px;
     margin-right: 0px;
   }
@@ -53,7 +53,7 @@ export const Name = styled.h2`
   margin-bottom: 12px;
   color: ${props => props.theme.colors.header.text};
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 32px;
     margin-bottom: 0;
   }

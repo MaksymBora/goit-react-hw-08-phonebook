@@ -30,7 +30,7 @@ export const TableHor = styled.th`
   background-color: ${props => props.theme.colors.contactsList.bg};
   color: ${props => props.theme.colors.header.text};
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 18px;
     font-weight: 500;
   }
@@ -57,7 +57,7 @@ export const TableRawContent = styled.tr`
     background-color: ${props => props.theme.colors.contactsList.hover};
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     &:hover {
       .ButtonsWrapper {
         display: block;
@@ -73,7 +73,7 @@ export const TableDataName = styled.td`
   gap: 20px;
   font-size: 18px;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     padding: 1px 16px;
   }
 `;
@@ -85,7 +85,7 @@ export const Name = styled.span`
   font-size: 16px;
   color: ${props => props.theme.colors.header.text};
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 18px;
   }
 `;
@@ -97,7 +97,7 @@ export const TableDataNumber = styled.td`
   font-size: 14px;
   color: ${props => props.theme.colors.header.text};
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 18px;
     padding: 1px 16px;
   }
