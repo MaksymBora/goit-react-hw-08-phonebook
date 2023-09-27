@@ -10,9 +10,13 @@ import { selectTheme } from 'redux/userTheme/slice';
 export const Filter = () => {
   const nameFromFilter = useSelector(selectFilteredContact);
   const userTheme = useSelector(selectTheme);
+
+  const dispatch = useDispatch();
+
   const userColorIcon =
     userTheme === 'dark' ? 'rgb(99,230,120)' : 'rgb(105, 105, 105)';
-  const dispatch = useDispatch();
+  const userColorPlaceholder =
+    userTheme === 'dark' ? '#c1c1c1' : 'rgb(105, 105, 105)';
 
   return (
     <PaperStyledSearch
@@ -23,7 +27,7 @@ export const Filter = () => {
         display: 'flex',
         alignItems: 'center',
         bgcolor: 'transparent',
-        boxShadow: 0,
+        boxShadow: '0px 2px 14px -1px rgba(0, 0, 0, 0.65)',
         borderRadius: '8px',
         transition: 'background-color 250ms ease-in, box-shadow 250ms ease-in',
       }}
@@ -36,7 +40,7 @@ export const Filter = () => {
         <SearchIcon />
       </IconButton>
       <SearchStyled
-        sx={{ ml: 1, flex: 1, color: '#c1c1c1' }}
+        sx={{ ml: 1, flex: 1, color: userColorPlaceholder }}
         placeholder="Search..."
         inputProps={{ 'aria-label': 'filter' }}
         name="filter"
