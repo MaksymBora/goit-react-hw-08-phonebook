@@ -40,7 +40,7 @@ export const StyledOutlinedInput = styled(OutlinedInput)`
 
   & .css-09k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused {
     /* color: red; */
-    border-color: green !important;
+    /* border-color: green !important; */
   }
 
   /* &
@@ -53,14 +53,18 @@ export const StyledOutlinedInput = styled(OutlinedInput)`
   } */
 
   & .css-1laqsz7-MuiInputAdornment-root button {
-    color: green;
+    color: ${props => props.theme.colors.loginForm.iconBtn};
   }
 
   & .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-    border-color: orange !important;
+    border-color: ${props => props.theme.colors.loginForm.border};
   }
 
   & .MuiOutlinedInput-notchedOutline {
     /* border-color: red !important; */
+  }
+
+  #ador-password {
+    color: ${props => props.theme.colors.loginForm.text};
   }
 `;

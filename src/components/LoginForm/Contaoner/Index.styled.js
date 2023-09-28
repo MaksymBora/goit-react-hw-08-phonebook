@@ -5,7 +5,7 @@ export const StyledPaper = styled(Paper)`
   width: 320px;
   margin: 30px auto;
 
-  /* div {
+  div {
     background-color: ${props => props.theme.colors.loginForm.bg};
   }
 
@@ -23,5 +23,5 @@ export const StyledPaper = styled(Paper)`
 
   .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.css-o350oy-MuiPaper-root {
     background-color: ${props => props.theme.colors.loginForm.bg};
-  } */
+  }
 `;

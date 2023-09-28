@@ -22,7 +22,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-// import { StyledField, StyledOutlinedInput } from './Login.styled';
+import { StyledField, StyledOutlinedInput } from './Login.styled';
 
 const initialValues = {
   email: '',
@@ -85,7 +85,7 @@ const SignIn = ({ handleChange }) => {
             {props => (
               <Form>
                 <Field
-                  as={TextField}
+                  as={StyledField}
                   sx={{
                     mt: 3,
                   }}
@@ -103,7 +103,7 @@ const SignIn = ({ handleChange }) => {
                     Password
                   </InputLabel>
                   <Field
-                    as={OutlinedInput}
+                    as={StyledOutlinedInput}
                     id="ador-password"
                     name="password"
                     type={showPassword ? 'text' : 'password'}
