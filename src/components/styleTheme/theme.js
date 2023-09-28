@@ -21,6 +21,9 @@ export const lightColors = {
     borderLoginForm: 'rgba(0, 0, 0, 0.23)',
     formLabelText: '#1976d2',
     focusedBorderInput: '#1976d2',
+    checkboxActive: 'rgb(49, 189, 126)',
+    paperShadow: 'rgba(89, 83, 83, 0.35)',
+    radioActive: 'rgb(49, 189, 126)',
   },
 };
 
@@ -39,6 +42,9 @@ export const darkColors = {
     loginInputBg: '#212121',
     borderLoginForm: '#ffffff',
     focusedBorderInput: 'rgb(99,230,120)',
+    checkboxActive: 'rgb(49, 189, 126)',
+    paperShadow: 'rgba(255, 255, 255, 0.25)',
+    radioActive: 'rgb(49, 189, 126)',
   },
 };
 
@@ -72,6 +78,7 @@ export const lightTheme = {
     },
     loginForm: {
       text: lightColors.colors.black,
+      textPrimery: lightColors.colors.textPrimary,
       bg: lightColors.colors.white,
       btnActive: lightColors.colors.formLoginactive,
       borderActive: lightColors.colors.activeBorder,
@@ -79,6 +86,12 @@ export const lightTheme = {
       border: lightColors.colors.borderLoginForm,
       label: lightColors.colors.formLabelText,
       focusedInput: lightColors.colors.focusedBorderInput,
+      iconBtn: lightColors.colors.textPrimary,
+      checkboxBorder: lightColors.colors.textPrimary,
+      checkboxChecked: lightColors.colors.checkboxActive,
+      paperShadow: lightColors.colors.paperShadow,
+      radioBorder: lightColors.colors.textPrimary,
+      radioChecked: lightColors.colors.radioActive,
     },
   },
   media,
@@ -114,6 +127,7 @@ export const darkTheme = {
     },
     loginForm: {
       text: darkColors.colors.white,
+      textPrimery: darkColors.colors.textPrimary,
       bg: darkColors.colors.black,
       btnActive: darkColors.colors.hoverBtns,
       borderActive: darkColors.colors.activeBorder,
@@ -121,6 +135,12 @@ export const darkTheme = {
       border: darkColors.colors.borderLoginForm,
       label: darkColors.colors.white,
       focusedInput: darkColors.colors.focusedBorderInput,
+      iconBtn: darkColors.colors.activeBorder,
+      checkboxBorder: darkColors.colors.activeBorder,
+      checkboxChecked: darkColors.colors.checkboxActive,
+      paperShadow: darkColors.colors.paperShadow,
+      radioBorder: darkColors.colors.textPrimary,
+      radioChecked: darkColors.colors.radioActive,
     },
   },
   media,

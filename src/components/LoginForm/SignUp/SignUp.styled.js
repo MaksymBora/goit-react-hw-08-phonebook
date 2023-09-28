@@ -1,9 +1,20 @@
 import styled from 'styled-components';
-import { TextField, FormControlLabel } from '@mui/material';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import { ErrorMessage } from 'formik';
+import {
+  TextField,
+  Typography,
+  RadioGroup,
+  Radio,
+  FormLabel,
+  FormControlLabel,
+} from '@mui/material';
 
-export const StyledField = styled(TextField)`
+export const StyledErrorMessage = styled(ErrorMessage)`
+  color: red;
+  font-size: 12px;
+`;
+
+export const StyledInput = styled(TextField)`
   div {
     color: ${props => props.theme.colors.loginForm.text};
     background-color: ${props => props.theme.colors.loginForm.inputBg};
@@ -17,7 +28,7 @@ export const StyledField = styled(TextField)`
     color: ${props => props.theme.colors.loginForm.label};
   }
 
-  .MuiOutlinedInput-notchedOutline {
+  & .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
     border-color: ${props => props.theme.colors.loginForm.border};
   }
 
@@ -28,17 +39,36 @@ export const StyledField = styled(TextField)`
   }
 `;
 
-export const StyledOutlinedInput = styled(OutlinedInput)`
-  & .css-1laqsz7-MuiInputAdornment-root button {
-    color: ${props => props.theme.colors.loginForm.iconBtn};
-  }
+export const StyledSpanTitle = styled.span`
+  font-weight: 700;
+  color: ${props => props.theme.colors.loginForm.text};
+`;
 
-  & .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-    border-color: ${props => props.theme.colors.loginForm.border};
-  }
+export const StyledTitle = styled(Typography)`
+  color: ${props => props.theme.colors.loginForm.text};
+`;
 
-  & .MuiOutlinedInput-notchedOutline {
-    /* border-color: red !important; */
+export const StyledFormLabel = styled(FormLabel)`
+  && .css-1glqnx5-MuiFormLabel-root.Mui-focused {
+    color: red;
+  }
+`;
+
+export const StyledRadioGroup = styled(RadioGroup)`
+  color: ${props => props.theme.colors.loginForm.text};
+
+  /* & .Mui-checked {
+    background-color: red;
+  } */
+
+  .css-hyxlzm {
+    color: ${props => props.theme.colors.loginForm.radioChecked};
+  }
+`;
+
+export const StyledRadioBtn = styled(Radio)`
+  & .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+    background-color: red;
   }
 `;
 
@@ -53,9 +83,4 @@ export const StyledCheckbox = styled(FormControlLabel)`
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
     color: ${props => props.theme.colors.loginForm.checkboxChecked};
   }
-`;
-
-export const StyledErrorMessage = styled(ErrorMessage)`
-  color: red;
-  font-size: 12px;
 `;

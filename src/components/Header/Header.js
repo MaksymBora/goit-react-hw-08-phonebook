@@ -144,7 +144,7 @@ export const Header = () => {
               <Title>Phonebook</Title>
             </Wrapper>
           </Link>
-          {isLoggedIn && (
+          {/* {isLoggedIn && (
             <StyledSwitcher
               control={<MaterialUISwitch sx={{ m: 1 }} />}
               label=""
@@ -152,7 +152,14 @@ export const Header = () => {
               sx={{ m: 0 }}
               checked={toggleTheme}
             />
-          )}
+          )} */}
+          <StyledSwitcher
+            control={<MaterialUISwitch sx={{ m: 1 }} />}
+            label=""
+            onClick={handleThemeChange}
+            sx={{ m: 0 }}
+            checked={toggleTheme}
+          />
         </WrapperTheme>
         {/* Mob */}
         <LoginBtnsWrapper className="LoginBtnsWrapper">

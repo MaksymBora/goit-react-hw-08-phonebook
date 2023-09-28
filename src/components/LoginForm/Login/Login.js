@@ -3,26 +3,29 @@ import {
   Avatar,
   Paper,
   Grid,
-  TextField,
-  FormControlLabel,
   Checkbox,
   Button,
   Typography,
   Link,
 } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-// import { StyledField, StyledOutlinedInput } from './Login.styled';
+import {
+  StyledField,
+  StyledOutlinedInput,
+  StyledCheckbox,
+  StyledErrorMessage,
+} from './Login.styled';
+import { selectTheme } from 'redux/userTheme/slice';
 
 const initialValues = {
   email: '',
@@ -31,12 +34,17 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Please enter valid email').required('Required'),
-  password: Yup.string().required('Required'),
+  email: Yup.string().email('Please enter valid email').required('Required*'),
+  password: Yup.string().required('Required*'),
 });
 
 const SignIn = ({ handleChange }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const userTheme = useSelector(selectTheme);
+
+  const focusedBorderColor =
+    userTheme === 'light' ? '#1976d2' : 'rgb(99,230,120)';
+  const textColor = userTheme === 'light' ? 'rgb(105, 105, 105)' : '#ffffff';
 
   const paperStyle = {
     padding: 20,
@@ -85,7 +93,7 @@ const SignIn = ({ handleChange }) => {
             {props => (
               <Form>
                 <Field
-                  as={TextField}
+                  as={StyledField}
                   sx={{
                     mt: 3,
                   }}
@@ -97,14 +105,21 @@ const SignIn = ({ handleChange }) => {
                   type="email"
                   fullWidth
                 />
-                <ErrorMessage name="email" />
-                <FormControl sx={{ mt: 2, width: '100%' }} variant="outlined">
+                <StyledErrorMessage name="email" component="span" />
+                <FormControl
+                  sx={{
+                    mt: 2,
+                    width: '100%',
+                  }}
+                  variant="outlined"
+                >
                   <InputLabel htmlFor="outlined-adornment-password">
                     Password
                   </InputLabel>
+
                   <Field
-                    as={OutlinedInput}
-                    id="ador-password"
+                    as={StyledOutlinedInput}
+                    id="outlined-adornment-password"
                     name="password"
                     type={showPassword ? 'text' : 'password'}
                     endAdornment={
@@ -121,11 +136,18 @@ const SignIn = ({ handleChange }) => {
                     }
                     label="Password"
                     autoComplete="on"
+                    sx={{
+                      '&.Mui-focused .css-1d3z3hw-MuiOutlinedInput-notchedOutline':
+                        {
+                          borderColor: focusedBorderColor,
+                        },
+                      color: textColor,
+                    }}
                   />
                 </FormControl>
-                <ErrorMessage name="password" />
+                <StyledErrorMessage name="password" component="span" />
                 <Field
-                  as={FormControlLabel}
+                  as={StyledCheckbox}
                   control={<Checkbox />}
                   label="Remember me"
                   name="remember"
