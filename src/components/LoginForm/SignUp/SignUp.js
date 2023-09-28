@@ -17,8 +17,19 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import FormHelperText from '@mui/material/FormHelperText';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import {
+  StyledErrorMessage,
+  StyledInput,
+  StyledTitle,
+  StyledSpanTitle,
+  StyledRadioGroup,
+  StyledRadioBtn,
+  StyledFormLabel,
+  StyledCheckbox,
+} from './SignUp.styled';
+import { selectTheme } from 'redux/userTheme/slice';
 
 const initialValues = {
   name: '',
@@ -31,24 +42,28 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().min(3, 'It`s too short').required('Required'),
-  email: Yup.string().email('Enter valid email').required('Required'),
+  name: Yup.string().min(3, 'It`s too short').required('Required*'),
+  email: Yup.string().email('Enter valid email').required('Required*'),
   gender: Yup.string()
-    .oneOf(['male', 'female'], 'Required')
-    .required('Required'),
+    .oneOf(['male', 'female'], 'Required*')
+    .required('Required*'),
   number: Yup.number()
     .typeError('Enter valid phone number')
-    .required('Required'),
+    .required('Required*'),
   password: Yup.string()
     .min(8, 'Password minimum length should be 8')
-    .required('Required'),
+    .required('Required*'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password')], 'Password not matched')
-    .required('Required'),
+    .required('Required*'),
   termAndConditions: Yup.string().oneOf(['true'], 'Accept terms & conditions'),
 });
 
 const SignUp = () => {
+  const userTheme = useSelector(selectTheme);
+
+  const colorGender = userTheme === 'light' ? 'rgb(105, 105, 105)' : '#ffffff';
+
   const paperStyle = {
     padding: '20px',
     minHeight: '72vh',
@@ -78,6 +93,8 @@ const SignUp = () => {
     }, 2000);
   };
 
+  const inputProps = {};
+
   return (
     <Grid>
       <Paper style={paperStyle} sx={{ fontSize: 16 }}>
@@ -85,12 +102,14 @@ const SignUp = () => {
           <Avatar style={avatarStyle}>
             <AddCircleOutlineOutlinedIcon />
           </Avatar>
-          <span style={{ display: 'block', width: '100%', marginTop: '12px' }}>
+          <StyledSpanTitle
+            style={{ display: 'block', width: '100%', marginTop: '12px' }}
+          >
             Sign Up
-          </span>
-          <Typography variant="caption">
+          </StyledSpanTitle>
+          <StyledTitle variant="caption">
             Please fill this form to create an account
-          </Typography>
+          </StyledTitle>
         </Grid>
 
         <Formik
@@ -101,7 +120,7 @@ const SignUp = () => {
           {props => (
             <Form>
               <Field
-                as={TextField}
+                as={StyledInput}
                 sx={{ mt: 3 }}
                 id="outlined-basic-name"
                 name="name"
@@ -110,10 +129,11 @@ const SignUp = () => {
                 type="text"
                 placeholder="Enter name"
                 fullWidth
+                inputProps={inputProps}
               />
-              <ErrorMessage name="name" />
+              <StyledErrorMessage name="name" component="span" />
               <Field
-                as={TextField}
+                as={StyledInput}
                 sx={{ mt: 3 }}
                 id="outlined-basic-email"
                 name="email"
@@ -123,15 +143,23 @@ const SignUp = () => {
                 type="email"
                 fullWidth
               />
-              <ErrorMessage name="email" />
+              <StyledErrorMessage name="email" component="span" />
               {/*======= Radio =========*/}
               <FormControl
                 style={{ marginTop: '8px', width: '100%' }}
                 component="fieldset"
               >
-                <FormLabel component="legend">Gender</FormLabel>
+                <StyledFormLabel
+                  component="legend"
+                  sx={{
+                    color: colorGender,
+                    '&.Mui-focused': { color: '#47a76a' },
+                  }}
+                >
+                  Gender
+                </StyledFormLabel>
                 <Field
-                  as={RadioGroup}
+                  as={StyledRadioGroup}
                   aria-labelledby="gender"
                   id="outlined-basic-gender"
                   name="gender"
@@ -139,22 +167,22 @@ const SignUp = () => {
                 >
                   <FormControlLabel
                     value="female"
-                    control={<Radio />}
+                    control={<StyledRadioBtn />}
                     label="Female"
                   />
                   <FormControlLabel
                     value="male"
-                    control={<Radio />}
+                    control={<StyledRadioBtn />}
                     label="Male"
                   />
                 </Field>
               </FormControl>
               <FormHelperText>
-                <ErrorMessage name="gender" />
+                <StyledErrorMessage name="gender" component="span" />
               </FormHelperText>
 
               <Field
-                as={TextField}
+                as={StyledInput}
                 sx={{ mt: 3 }}
                 id="outlined-basic-number"
                 label="Phone Number"
@@ -164,9 +192,9 @@ const SignUp = () => {
                 placeholder="Enter phone number"
                 fullWidth
               />
-              <ErrorMessage name="number" />
+              <StyledErrorMessage name="number" component="span" />
               <Field
-                as={TextField}
+                as={StyledInput}
                 sx={{ mt: 3 }}
                 id="reg-password"
                 type="password"
@@ -177,9 +205,9 @@ const SignUp = () => {
                 fullWidth
                 autoComplete="on"
               />
-              <ErrorMessage name="password" />
+              <StyledErrorMessage name="password" component="span" />
               <Field
-                as={TextField}
+                as={StyledInput}
                 sx={{ mt: 3 }}
                 id="conf-password"
                 type="password"
@@ -190,14 +218,21 @@ const SignUp = () => {
                 fullWidth
                 autoComplete="on"
               />
-              <ErrorMessage name="confirmPassword" />
-              <FormControlLabel
+              <StyledErrorMessage name="confirmPassword" component="span" />
+              {/* <StyledCheckbox
                 control={<Field as={Checkbox} />}
                 name="termAndConditions"
                 label="I accept the terms and conditions."
+              /> */}
+              <Field
+                as={StyledCheckbox}
+                control={<Checkbox />}
+                label="I accept the terms and conditions."
+                name="termAndConditions"
+                sx={{ width: '100%', mt: '12px' }}
               />
               <FormHelperText>
-                <ErrorMessage name="termAndConditions" />
+                <StyledErrorMessage name="termAndConditions" component="span" />
               </FormHelperText>
               <Button
                 type="submit"

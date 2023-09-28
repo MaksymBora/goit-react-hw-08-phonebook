@@ -23,6 +23,7 @@ export const lightColors = {
     focusedBorderInput: '#1976d2',
     checkboxActive: 'rgb(49, 189, 126)',
     paperShadow: 'rgba(89, 83, 83, 0.35)',
+    radioActive: 'rgb(49, 189, 126)',
   },
 };
 
@@ -43,6 +44,7 @@ export const darkColors = {
     focusedBorderInput: 'rgb(99,230,120)',
     checkboxActive: 'rgb(49, 189, 126)',
     paperShadow: 'rgba(255, 255, 255, 0.25)',
+    radioActive: 'rgb(49, 189, 126)',
   },
 };
 
@@ -88,6 +90,8 @@ export const lightTheme = {
       checkboxBorder: lightColors.colors.textPrimary,
       checkboxChecked: lightColors.colors.checkboxActive,
       paperShadow: lightColors.colors.paperShadow,
+      radioBorder: lightColors.colors.textPrimary,
+      radioChecked: lightColors.colors.radioActive,
     },
   },
   media,
@@ -135,6 +139,8 @@ export const darkTheme = {
       checkboxBorder: darkColors.colors.activeBorder,
       checkboxChecked: darkColors.colors.checkboxActive,
       paperShadow: darkColors.colors.paperShadow,
+      radioBorder: darkColors.colors.textPrimary,
+      radioChecked: darkColors.colors.radioActive,
     },
   },
   media,
