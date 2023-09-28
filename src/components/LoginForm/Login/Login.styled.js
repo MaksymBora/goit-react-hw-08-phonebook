@@ -40,10 +40,6 @@ export const StyledOutlinedInput = styled(OutlinedInput)`
   & .MuiOutlinedInput-notchedOutline {
     /* border-color: red !important; */
   }
-
-  #ador-password {
-    color: ${props => props.theme.colors.loginForm.text};
-  }
 `;
 
 export const StyledCheckbox = styled(FormControlLabel)`

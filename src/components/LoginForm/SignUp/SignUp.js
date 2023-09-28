@@ -4,18 +4,13 @@ import {
   Button,
   FormControl,
   FormControlLabel,
-  FormLabel,
   Grid,
   Paper,
-  RadioGroup,
-  TextField,
-  Typography,
-  Radio,
   Checkbox,
 } from '@mui/material';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import FormHelperText from '@mui/material/FormHelperText';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';

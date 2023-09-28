@@ -3,24 +3,24 @@ import {
   Avatar,
   Paper,
   Grid,
-  TextField,
-  FormControlLabel,
   Checkbox,
   Button,
   Typography,
   Link,
+  createTheme,
+  makeStyles,
+  createStyles,
 } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import {
   StyledField,
@@ -28,6 +28,10 @@ import {
   StyledCheckbox,
   StyledErrorMessage,
 } from './Login.styled';
+import { selectTheme } from 'redux/userTheme/slice';
+import { ThemeProvider } from 'styled-components';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { styled } from '@mui/material/styles';
 
 const initialValues = {
   email: '',
@@ -42,6 +46,11 @@ const validationSchema = Yup.object().shape({
 
 const SignIn = ({ handleChange }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const userTheme = useSelector(selectTheme);
+
+  const focusedBorderColor =
+    userTheme === 'light' ? '#1976d2' : 'rgb(99,230,120)';
+  const textColor = userTheme === 'light' ? 'rgb(105, 105, 105)' : '#ffffff';
 
   const paperStyle = {
     padding: 20,
@@ -103,13 +112,20 @@ const SignIn = ({ handleChange }) => {
                   fullWidth
                 />
                 <StyledErrorMessage name="email" component="span" />
-                <FormControl sx={{ mt: 2, width: '100%' }} variant="outlined">
+                <FormControl
+                  sx={{
+                    mt: 2,
+                    width: '100%',
+                  }}
+                  variant="outlined"
+                >
                   <InputLabel htmlFor="outlined-adornment-password">
                     Password
                   </InputLabel>
+
                   <Field
                     as={StyledOutlinedInput}
-                    id="ador-password"
+                    id="outlined-adornment-password"
                     name="password"
                     type={showPassword ? 'text' : 'password'}
                     endAdornment={
@@ -126,6 +142,13 @@ const SignIn = ({ handleChange }) => {
                     }
                     label="Password"
                     autoComplete="on"
+                    sx={{
+                      '&.Mui-focused .css-1d3z3hw-MuiOutlinedInput-notchedOutline':
+                        {
+                          borderColor: focusedBorderColor,
+                        },
+                      color: textColor,
+                    }}
                   />
                 </FormControl>
                 <StyledErrorMessage name="password" component="span" />
