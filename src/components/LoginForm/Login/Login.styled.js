@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
+import { TextField, FormControlLabel } from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
 export const StyledField = styled(TextField)`
@@ -67,4 +67,33 @@ export const StyledOutlinedInput = styled(OutlinedInput)`
   #ador-password {
     color: ${props => props.theme.colors.loginForm.text};
   }
+`;
+
+export const StyledCheckbox = styled(FormControlLabel)`
+  color: ${props => props.theme.colors.loginForm.text};
+
+  /* && .MuiSvgIcon-root {
+    color: red !important;
+  } */
+
+  && .MuiCheckbox-root {
+    color: ${props => props.theme.colors.loginForm.checkboxBorder};
+  }
+
+  && .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+    color: ${props => props.theme.colors.loginForm.checkboxChecked};
+  }
+
+  /* && .css-i4bv87-MuiSvgIcon-root {
+    color: orange !important;
+  } */
+
+  /* && .MuiSvgIcon-root .MuiSvgIcon-fontSizeMedium .css-i4bv87-MuiSvgIcon-root {
+    color: red !important;
+  } */
+
+  /* && .Mui-checked {
+    color: red;
+  } */
 `;

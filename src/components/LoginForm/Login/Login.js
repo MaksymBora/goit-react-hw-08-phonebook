@@ -22,7 +22,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { StyledField, StyledOutlinedInput } from './Login.styled';
+import {
+  StyledField,
+  StyledOutlinedInput,
+  StyledCheckbox,
+} from './Login.styled';
 
 const initialValues = {
   email: '',
@@ -125,7 +129,7 @@ const SignIn = ({ handleChange }) => {
                 </FormControl>
                 <ErrorMessage name="password" />
                 <Field
-                  as={FormControlLabel}
+                  as={StyledCheckbox}
                   control={<Checkbox />}
                   label="Remember me"
                   name="remember"
