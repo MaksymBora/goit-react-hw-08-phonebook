@@ -72,10 +72,6 @@ export const StyledOutlinedInput = styled(OutlinedInput)`
 export const StyledCheckbox = styled(FormControlLabel)`
   color: ${props => props.theme.colors.loginForm.text};
 
-  /* && .MuiSvgIcon-root {
-    color: red !important;
-  } */
-
   && .MuiCheckbox-root {
     color: ${props => props.theme.colors.loginForm.checkboxBorder};
   }
@@ -84,16 +80,4 @@ export const StyledCheckbox = styled(FormControlLabel)`
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
     color: ${props => props.theme.colors.loginForm.checkboxChecked};
   }
-
-  /* && .css-i4bv87-MuiSvgIcon-root {
-    color: orange !important;
-  } */
-
-  /* && .MuiSvgIcon-root .MuiSvgIcon-fontSizeMedium .css-i4bv87-MuiSvgIcon-root {
-    color: red !important;
-  } */
-
-  /* && .Mui-checked {
-    color: red;
-  } */
 `;
