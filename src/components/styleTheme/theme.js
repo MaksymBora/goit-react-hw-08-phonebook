@@ -20,6 +20,7 @@ export const lightColors = {
     loginInputBg: '#ffffff',
     borderLoginForm: 'rgba(0, 0, 0, 0.23)',
     formLabelText: '#1976d2',
+    focusedBorderInput: '#1976d2',
   },
 };
 
@@ -37,6 +38,7 @@ export const darkColors = {
     activeBorder: 'green',
     loginInputBg: '#212121',
     borderLoginForm: '#ffffff',
+    focusedBorderInput: 'rgb(99,230,120)',
   },
 };
 
@@ -76,6 +78,7 @@ export const lightTheme = {
       inputBg: lightColors.colors.loginInputBg,
       border: lightColors.colors.borderLoginForm,
       label: lightColors.colors.formLabelText,
+      focusedInput: lightColors.colors.focusedBorderInput,
     },
   },
   media,
@@ -117,6 +120,7 @@ export const darkTheme = {
       inputBg: darkColors.colors.loginInputBg,
       border: darkColors.colors.borderLoginForm,
       label: darkColors.colors.white,
+      focusedInput: darkColors.colors.focusedBorderInput,
     },
   },
   media,
