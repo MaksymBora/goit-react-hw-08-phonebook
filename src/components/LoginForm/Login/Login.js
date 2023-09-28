@@ -7,9 +7,6 @@ import {
   Button,
   Typography,
   Link,
-  createTheme,
-  makeStyles,
-  createStyles,
 } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
@@ -29,9 +26,6 @@ import {
   StyledErrorMessage,
 } from './Login.styled';
 import { selectTheme } from 'redux/userTheme/slice';
-import { ThemeProvider } from 'styled-components';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { styled } from '@mui/material/styles';
 
 const initialValues = {
   email: '',
