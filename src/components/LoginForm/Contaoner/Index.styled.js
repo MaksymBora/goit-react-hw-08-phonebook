@@ -6,11 +6,13 @@ export const StyledPaper = styled(Paper)`
   margin: 30px auto;
 
   & .MuiPaper-root {
-    box-shadow: -1px 1px 5px 0px rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 7px 0px
+      ${props => props.theme.colors.loginForm.paperShadow};
   }
 
-  & .css-1ujnqem-MuiTabs-root {
-    box-shadow: -1px 1px 5px 0px rgba(255, 255, 255, 0.25);
+  && .css-1ujnqem-MuiTabs-root {
+    box-shadow: 0px 0px 7px 0px
+      ${props => props.theme.colors.loginForm.paperShadow};
   }
 
   div {

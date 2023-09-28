@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { TextField, FormControlLabel } from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import { ErrorMessage } from 'formik';
 
 export const StyledField = styled(TextField)`
   div {
@@ -30,28 +31,6 @@ export const StyledField = styled(TextField)`
 // #1976d2
 
 export const StyledOutlinedInput = styled(OutlinedInput)`
-  & .MuiInputBase-root .MuiOutlinedInput-root .MuiInputBase-formControl {
-    /* background-color: red !important; */
-  }
-
-  & .MuiInputBase-formControl {
-    /* color: red; */
-  }
-
-  & .css-09k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused {
-    /* color: red; */
-    /* border-color: green !important; */
-  }
-
-  /* &
-    .css-09k5xi-MuiInputBase-root-MuiOutlinedInput-root
-    .MuiOutlinedInput-notchedOutline {
-    border-color: green !important;
-    background-color: red !important;
-    color: red !important;
-    border: none !important;
-  } */
-
   & .css-1laqsz7-MuiInputAdornment-root button {
     color: ${props => props.theme.colors.loginForm.iconBtn};
   }
@@ -80,4 +59,9 @@ export const StyledCheckbox = styled(FormControlLabel)`
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
     color: ${props => props.theme.colors.loginForm.checkboxChecked};
   }
+`;
+
+export const StyledErrorMessage = styled(ErrorMessage)`
+  color: red;
+  font-size: 12px;
 `;

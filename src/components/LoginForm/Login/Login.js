@@ -26,6 +26,7 @@ import {
   StyledField,
   StyledOutlinedInput,
   StyledCheckbox,
+  StyledErrorMessage,
 } from './Login.styled';
 
 const initialValues = {
@@ -35,8 +36,8 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Please enter valid email').required('Required'),
-  password: Yup.string().required('Required'),
+  email: Yup.string().email('Please enter valid email').required('Required*'),
+  password: Yup.string().required('Required*'),
 });
 
 const SignIn = ({ handleChange }) => {
@@ -101,7 +102,7 @@ const SignIn = ({ handleChange }) => {
                   type="email"
                   fullWidth
                 />
-                <ErrorMessage name="email" />
+                <StyledErrorMessage name="email" component="span" />
                 <FormControl sx={{ mt: 2, width: '100%' }} variant="outlined">
                   <InputLabel htmlFor="outlined-adornment-password">
                     Password
@@ -127,7 +128,7 @@ const SignIn = ({ handleChange }) => {
                     autoComplete="on"
                   />
                 </FormControl>
-                <ErrorMessage name="password" />
+                <StyledErrorMessage name="password" component="span" />
                 <Field
                   as={StyledCheckbox}
                   control={<Checkbox />}

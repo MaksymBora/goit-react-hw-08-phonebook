@@ -22,6 +22,7 @@ export const lightColors = {
     formLabelText: '#1976d2',
     focusedBorderInput: '#1976d2',
     checkboxActive: 'rgb(49, 189, 126)',
+    paperShadow: 'rgba(89, 83, 83, 0.35)',
   },
 };
 
@@ -41,6 +42,7 @@ export const darkColors = {
     borderLoginForm: '#ffffff',
     focusedBorderInput: 'rgb(99,230,120)',
     checkboxActive: 'rgb(49, 189, 126)',
+    paperShadow: 'rgba(255, 255, 255, 0.25)',
   },
 };
 
@@ -85,6 +87,7 @@ export const lightTheme = {
       iconBtn: lightColors.colors.textPrimary,
       checkboxBorder: lightColors.colors.textPrimary,
       checkboxChecked: lightColors.colors.checkboxActive,
+      paperShadow: lightColors.colors.paperShadow,
     },
   },
   media,
@@ -131,6 +134,7 @@ export const darkTheme = {
       iconBtn: darkColors.colors.activeBorder,
       checkboxBorder: darkColors.colors.activeBorder,
       checkboxChecked: darkColors.colors.checkboxActive,
+      paperShadow: darkColors.colors.paperShadow,
     },
   },
   media,
