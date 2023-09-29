@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Avatar,
   Paper,
@@ -7,7 +7,10 @@ import {
   Button,
   Typography,
   Link,
+  useMediaQuery,
+  createTheme,
 } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -26,6 +29,16 @@ import {
   StyledErrorMessage,
 } from './Login.styled';
 import { selectTheme } from 'redux/userTheme/slice';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import {
+  green,
+  purple,
+  lime,
+  deepOrange,
+  grey,
+  amber,
+} from '@mui/material/colors';
+import { TextField, FormControlLabel } from '@mui/material';
 
 const initialValues = {
   email: '',
@@ -41,10 +54,12 @@ const validationSchema = Yup.object().shape({
 const SignIn = ({ handleChange }) => {
   const [showPassword, setShowPassword] = useState(false);
   const userTheme = useSelector(selectTheme);
+  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)'); // System preference
 
-  const focusedBorderColor =
-    userTheme === 'light' ? '#1976d2' : 'rgb(99,230,120)';
-  const textColor = userTheme === 'light' ? 'rgb(105, 105, 105)' : '#ffffff';
+  // const focusedBorderColor =
+  //   userTheme === 'light' ? '#1976d2' : 'rgb(99,230,120)';
+
+  // const textColor = userTheme === 'light' ? 'rgb(105, 105, 105)' : '#ffffff';
 
   const paperStyle = {
     padding: 20,
@@ -74,126 +89,163 @@ const SignIn = ({ handleChange }) => {
     event.preventDefault();
   };
 
+  // const mode = prefersDarkMode ? 'dark' : 'light';
+  const mode = userTheme;
+  let theme = useMemo(() => {
+    // const mode = prefersDarkMode ? 'dark' : 'light';
+
+    return createTheme({
+      palette: {
+        mode: mode,
+        primary: {
+          main: 'rgb(32, 139, 74)',
+          ...(mode === 'dark' && {
+            main: 'rgb(49, 189, 126)',
+          }),
+        },
+        ...(mode === 'dark' && {
+          background: {
+            default: '#101d2b',
+            paper: '#101d2b',
+          },
+        }),
+        text: {
+          ...(mode === 'light'
+            ? {
+                primary: grey[900],
+                secondary: grey[800],
+              }
+            : {
+                primary: '#fff',
+                secondary: grey[500],
+              }),
+        },
+      },
+    });
+  }, [userTheme]);
+
   return (
     <>
-      <Grid>
-        <Paper style={paperStyle}>
-          <Grid align="center">
-            <Avatar style={avatarStyle}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <span>Sign in</span>
-          </Grid>
+      <ThemeProvider theme={theme}>
+        <Grid>
+          <Paper style={paperStyle}>
+            <Grid align="center">
+              <Avatar style={avatarStyle}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <span>Sign in</span>
+            </Grid>
 
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={onSubmit}
-          >
-            {props => (
-              <Form>
-                <Field
-                  as={StyledField}
-                  sx={{
-                    mt: 3,
-                  }}
-                  id="basic-email"
-                  name="email"
-                  label="Login"
-                  variant="outlined"
-                  placeholder="Enter email"
-                  type="email"
-                  fullWidth
-                />
-                <StyledErrorMessage name="email" component="span" />
-                <FormControl
-                  sx={{
-                    mt: 2,
-                    width: '100%',
-                  }}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Password
-                  </InputLabel>
-
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+            >
+              {props => (
+                <Form>
                   <Field
-                    as={StyledOutlinedInput}
-                    id="outlined-adornment-password"
-                    name="password"
-                    type={showPassword ? 'text' : 'password'}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                          edge="end"
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                    label="Password"
-                    autoComplete="on"
+                    as={TextField}
                     sx={{
-                      '&.Mui-focused .css-1d3z3hw-MuiOutlinedInput-notchedOutline':
-                        {
-                          borderColor: focusedBorderColor,
-                        },
-                      color: textColor,
+                      mt: 3,
                     }}
+                    id="basic-email"
+                    name="email"
+                    label="Login"
+                    variant="outlined"
+                    placeholder="Enter email"
+                    type="email"
+                    fullWidth
                   />
-                </FormControl>
-                <StyledErrorMessage name="password" component="span" />
-                <Field
-                  as={StyledCheckbox}
-                  control={<Checkbox />}
-                  label="Remember me"
-                  name="remember"
-                  sx={{ width: '100%' }}
-                />
-                <Button
-                  type="submit"
-                  color="primary"
-                  fullWidth
-                  variant="contained"
-                  disabled={props.isSubmitting}
-                  style={btnstyle}
-                >
-                  {props.isSubmitting ? 'Loading' : 'Sign in'}
-                </Button>
-              </Form>
-            )}
-          </Formik>
+                  <StyledErrorMessage name="email" component="span" />
+                  <FormControl
+                    sx={{
+                      mt: 2,
+                      width: '100%',
+                    }}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-password">
+                      Password
+                    </InputLabel>
 
-          <Link
-            sx={{ width: '100%' }}
-            component="button"
-            variant="body2"
-            onClick={() => {
-              console.info("I'm a button.");
-            }}
-          >
-            Forgot password ?
-          </Link>
+                    <Field
+                      as={OutlinedInput}
+                      name="password"
+                      id="outlined-adornment-password"
+                      type={showPassword ? 'text' : 'password'}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                      label="Password"
+                      autoComplete="on"
+                      // sx={{
+                      //   '&.Mui-focused .css-1d3z3hw-MuiOutlinedInput-notchedOutline':
+                      //     {
+                      //       borderColor: focusedBorderColor,
+                      //     },
+                      //   color: textColor,
+                      // }}
+                    />
+                  </FormControl>
+                  <StyledErrorMessage name="password" component="span" />
+                  <Field
+                    as={FormControlLabel}
+                    control={<Checkbox />}
+                    label="Remember me"
+                    name="remember"
+                    sx={{ width: '100%' }}
+                  />
+                  <Button
+                    type="submit"
+                    color="primary"
+                    fullWidth
+                    variant="contained"
+                    disabled={props.isSubmitting}
+                    style={btnstyle}
+                  >
+                    {props.isSubmitting ? 'Loading' : 'Sign in'}
+                  </Button>
+                </Form>
+              )}
+            </Formik>
 
-          <Typography
-            variant="body2"
-            sx={{ mr: 1, d: 'inline' }}
-            component="span"
-          >
-            Do you have an account ?
-          </Typography>
-          <Link
-            component="button"
-            variant="body2"
-            onClick={() => handleChange('event', 1)}
-          >
-            Sign Up
-          </Link>
-        </Paper>
-      </Grid>
+            <Link
+              sx={{ width: '100%' }}
+              component="button"
+              variant="body2"
+              onClick={() => {
+                console.info("I'm a button.");
+              }}
+            >
+              Forgot password ?
+            </Link>
+
+            <Typography
+              variant="body2"
+              sx={{ mr: 1, d: 'inline' }}
+              component="span"
+            >
+              Do you have an account ?
+            </Typography>
+            <Link
+              component="button"
+              variant="body2"
+              onClick={() => handleChange('event', 1)}
+            >
+              Sign Up
+            </Link>
+          </Paper>
+        </Grid>
+      </ThemeProvider>
     </>
   );
 };

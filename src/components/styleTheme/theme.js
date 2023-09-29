@@ -31,6 +31,7 @@ export const darkColors = {
   colors: {
     textPrimary: '#ffffff',
     black: '#000000',
+    bodyBg: '#101d2b',
     hoverShadow: 'rgba(99,230,120,0.75)',
     transparent: 'transparent',
     border: 'rgb(99,230,120)',

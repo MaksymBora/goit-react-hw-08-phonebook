@@ -25,6 +25,8 @@ import {
   selectTheme,
 } from 'redux/userTheme/slice';
 import Switch from '@mui/material/Switch';
+import { useMediaQuery } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -106,10 +108,22 @@ export const Header = () => {
   const { isLoggedIn } = useAuth();
   const { user } = useAuth();
   const currentTheme = useSelector(selectTheme);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)'); // System preference
+  const [toggleTheme, setToggleTheme] = useState(prefersDarkMode);
 
   const dispatch = useDispatch();
 
-  const toggleTheme = currentTheme === 'dark' ? true : false;
+  // const toggleTheme = currentTheme === 'dark' || prefersDarkMode;
+
+  // const themeSwitcher = () => {
+  //   if (currentTheme === 'dark' || prefersDarkMode) {
+  //     dispatch(handleDarkTheme());
+  //     return true;
+  //   } else {
+  //     dispatch(handleLightTheme());
+  //     return false;
+  //   }
+  // };
 
   const handleThemeChange = () => {
     if (currentTheme === 'light') {
@@ -118,6 +132,17 @@ export const Header = () => {
       dispatch(handleLightTheme());
     }
   };
+
+  useEffect(() => {
+    // Отслеживайте изменения prefersDarkMode и обновляйте состояние переключателя
+    if (prefersDarkMode) {
+      setToggleTheme(prefersDarkMode);
+      dispatch(handleDarkTheme());
+    } else {
+      setToggleTheme(prefersDarkMode);
+      dispatch(handleLightTheme());
+    }
+  }, [prefersDarkMode]);
 
   return (
     <HeaderWrapper>
@@ -144,7 +169,7 @@ export const Header = () => {
               <Title>Phonebook</Title>
             </Wrapper>
           </Link>
-          {isLoggedIn && (
+          {/* {isLoggedIn && (
             <StyledSwitcher
               control={<MaterialUISwitch sx={{ m: 1 }} />}
               label=""
@@ -152,7 +177,14 @@ export const Header = () => {
               sx={{ m: 0 }}
               checked={toggleTheme}
             />
-          )}
+          )} */}
+          <StyledSwitcher
+            control={<MaterialUISwitch sx={{ m: 1 }} />}
+            label=""
+            onClick={handleThemeChange}
+            sx={{ m: 0 }}
+            checked={toggleTheme || currentTheme === 'dark'}
+          />
         </WrapperTheme>
         {/* Mob */}
         <LoginBtnsWrapper className="LoginBtnsWrapper">
