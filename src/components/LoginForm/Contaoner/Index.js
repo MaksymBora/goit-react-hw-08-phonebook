@@ -3,7 +3,7 @@ import { Box, Tab, Tabs, Typography, Paper, createTheme } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
-import { StyledPaper } from './Index.styled';
+
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/userTheme/slice';
 import { grey } from '@mui/material/colors';
@@ -67,7 +67,7 @@ const AuthUserForm = () => {
         },
       },
     });
-  }, [userTheme]);
+  }, [mode]);
 
   return (
     <>

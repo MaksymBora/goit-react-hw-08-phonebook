@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Avatar,
   Paper,
@@ -7,7 +7,6 @@ import {
   Button,
   Typography,
   Link,
-  useMediaQuery,
   createTheme,
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
@@ -22,22 +21,10 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import {
-  StyledField,
-  StyledOutlinedInput,
-  StyledCheckbox,
-  StyledErrorMessage,
-} from './Login.styled';
+import { StyledErrorMessage } from './Login.styled';
 import { selectTheme } from 'redux/userTheme/slice';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import {
-  green,
-  purple,
-  lime,
-  deepOrange,
-  grey,
-  amber,
-} from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import { TextField, FormControlLabel } from '@mui/material';
 
 const initialValues = {
@@ -122,7 +109,7 @@ const SignIn = ({ handleChange }) => {
         },
       },
     });
-  }, [userTheme]);
+  }, [mode]);
 
   return (
     <>

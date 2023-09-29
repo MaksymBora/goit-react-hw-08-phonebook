@@ -22,16 +22,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
-import {
-  StyledErrorMessage,
-  StyledInput,
-  StyledTitle,
-  StyledSpanTitle,
-  StyledRadioGroup,
-  StyledRadioBtn,
-  StyledFormLabel,
-  StyledCheckbox,
-} from './SignUp.styled';
+import { StyledErrorMessage, StyledSpanTitle } from './SignUp.styled';
 import { selectTheme } from 'redux/userTheme/slice';
 import { grey } from '@mui/material/colors';
 
@@ -129,7 +120,7 @@ const SignUp = () => {
         },
       },
     });
-  }, [userTheme]);
+  }, [mode]);
 
   return (
     <ThemeProvider theme={theme}>

@@ -134,7 +134,6 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    // Отслеживайте изменения prefersDarkMode и обновляйте состояние переключателя
     if (prefersDarkMode) {
       setToggleTheme(prefersDarkMode);
       dispatch(handleDarkTheme());
@@ -142,7 +141,7 @@ export const Header = () => {
       setToggleTheme(prefersDarkMode);
       dispatch(handleLightTheme());
     }
-  }, [prefersDarkMode]);
+  }, [prefersDarkMode, dispatch]);
 
   return (
     <HeaderWrapper>
