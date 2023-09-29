@@ -24,7 +24,7 @@ export const TableRaw = styled.tr`
 export const TableHor = styled.th`
   padding: 12px 16px;
   text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid ${props => props.theme.colors.contactsList.border};
   font-weight: 400;
   font-size: 16px;
   background-color: ${props => props.theme.colors.contactsList.bg};

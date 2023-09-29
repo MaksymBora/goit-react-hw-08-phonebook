@@ -24,14 +24,15 @@ export const lightColors = {
     checkboxActive: 'rgb(49, 189, 126)',
     paperShadow: 'rgba(89, 83, 83, 0.35)',
     radioActive: 'rgb(49, 189, 126)',
+    contactsListBorder: 'rgba(0, 0, 0, 0.2)',
   },
 };
 
 export const darkColors = {
   colors: {
+    bodyBg: 'rgb(32, 44, 56)',
     textPrimary: '#ffffff',
     black: '#000000',
-    bodyBg: '#101d2b',
     hoverShadow: 'rgba(99,230,120,0.75)',
     transparent: 'transparent',
     border: 'rgb(99,230,120)',
@@ -46,6 +47,7 @@ export const darkColors = {
     checkboxActive: 'rgb(49, 189, 126)',
     paperShadow: 'rgba(255, 255, 255, 0.25)',
     radioActive: 'rgb(49, 189, 126)',
+    contactsListBorder: 'rgba(222, 223, 224, 0.2)',
   },
 };
 
@@ -65,6 +67,7 @@ export const lightTheme = {
       bg: lightColors.colors.white,
       hover: lightColors.colors.contactHover,
       hoveredBtnColor: lightColors.colors.hoverBtnContactList,
+      border: lightColors.colors.contactsListBorder,
     },
     editContact: {
       text: lightColors.colors.black,
@@ -101,19 +104,20 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     mainLayout: {
-      bg: darkColors.colors.black,
+      bg: darkColors.colors.bodyBg,
     },
     header: {
       text: darkColors.colors.textPrimary,
-      bg: darkColors.colors.black,
+      bg: darkColors.colors.bodyBg,
       btnBg: darkColors.colors.transparent,
       boxShadowHover: darkColors.colors.hoverShadow,
       border: darkColors.colors.border,
     },
     contactsList: {
-      bg: darkColors.colors.black,
+      bg: darkColors.colors.bodyBg,
       hover: darkColors.colors.contactHover,
       hoveredBtnColor: lightColors.colors.white,
+      border: darkColors.colors.contactsListBorder,
     },
     editContact: {
       text: darkColors.colors.white,
