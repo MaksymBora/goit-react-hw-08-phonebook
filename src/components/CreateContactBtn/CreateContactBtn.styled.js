@@ -50,7 +50,7 @@ export const MobStyledLink = styled(Link)`
   text-decoration: 'none';
   position: absolute;
   right: 0;
-  bottom: -55vh;
+  bottom: -340px;
   width: 70px;
   transition: box-shadow 250ms ease-in-out, opacity 250ms ease-in-out;
 
@@ -63,11 +63,15 @@ export const MobStyledLink = styled(Link)`
   }
 
   @media screen and (min-height: 271px) {
-    bottom: -55vh;
+    bottom: -160px;
   }
 
   @media screen and (min-height: 400px) {
-    bottom: -65vh;
+    bottom: -230px;
+  }
+
+  @media screen and (min-height: 650px) {
+    bottom: -340px;
   }
 
   @media screen and (min-width: ${props => props.theme.media.m}) {

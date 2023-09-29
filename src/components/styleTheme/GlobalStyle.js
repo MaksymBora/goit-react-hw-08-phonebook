@@ -13,6 +13,10 @@ body {
  
   }
 
+#root {
+background-color: rgb(32, 44, 56);
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
@@ -40,6 +44,7 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 
 
 `;
