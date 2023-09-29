@@ -32,6 +32,7 @@ export const CreateContact = () => {
         </PaperStyled>
       </StyledLink>
 
+      {/* Mob */}
       <MobStyledLink to="/addContact" style={{ textDecoration: 'none' }}>
         {addContact !== 'addContact' && (
           <PaperStyled
@@ -40,7 +41,6 @@ export const CreateContact = () => {
               borderRadius: '50%',
               p: '12px',
               alignItems: 'center',
-              width: '50px',
               display: 'flex',
             }}
           >
