@@ -39,7 +39,7 @@ export const CreateContact = () => {
             elevation={3}
             sx={{
               borderRadius: '50%',
-              p: '12px',
+              p: '20px',
               alignItems: 'center',
               display: 'flex',
             }}

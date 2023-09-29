@@ -107,7 +107,7 @@ export const darkTheme = {
       bg: darkColors.colors.bodyBg,
     },
     header: {
-      text: darkColors.colors.textPrimary,
+      text: darkColors.colors.white,
       bg: darkColors.colors.bodyBg,
       btnBg: darkColors.colors.transparent,
       boxShadowHover: darkColors.colors.hoverShadow,
