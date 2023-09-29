@@ -247,11 +247,7 @@ const SignUp = () => {
                   autoComplete="on"
                 />
                 <StyledErrorMessage name="confirmPassword" component="span" />
-                {/* <StyledCheckbox
-                control={<Field as={Checkbox} />}
-                name="termAndConditions"
-                label="I accept the terms and conditions."
-              /> */}
+
                 <Field
                   as={FormControlLabel}
                   control={<Checkbox />}

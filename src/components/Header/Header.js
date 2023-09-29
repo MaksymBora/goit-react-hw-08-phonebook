@@ -108,22 +108,10 @@ export const Header = () => {
   const { isLoggedIn } = useAuth();
   const { user } = useAuth();
   const currentTheme = useSelector(selectTheme);
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)'); // System preference
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [toggleTheme, setToggleTheme] = useState(prefersDarkMode);
 
   const dispatch = useDispatch();
-
-  // const toggleTheme = currentTheme === 'dark' || prefersDarkMode;
-
-  // const themeSwitcher = () => {
-  //   if (currentTheme === 'dark' || prefersDarkMode) {
-  //     dispatch(handleDarkTheme());
-  //     return true;
-  //   } else {
-  //     dispatch(handleLightTheme());
-  //     return false;
-  //   }
-  // };
 
   const handleThemeChange = () => {
     if (currentTheme === 'light') {
@@ -170,15 +158,7 @@ export const Header = () => {
               <Title>Phonebook</Title>
             </Wrapper>
           </Link>
-          {/* {isLoggedIn && (
-            <StyledSwitcher
-              control={<MaterialUISwitch sx={{ m: 1 }} />}
-              label=""
-              onClick={handleThemeChange}
-              sx={{ m: 0 }}
-              checked={toggleTheme}
-            />
-          )} */}
+
           <StyledSwitcher
             control={<MaterialUISwitch sx={{ m: 1 }} />}
             label=""

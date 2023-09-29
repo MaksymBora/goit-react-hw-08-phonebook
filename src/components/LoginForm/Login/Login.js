@@ -41,12 +41,6 @@ const validationSchema = Yup.object().shape({
 const SignIn = ({ handleChange }) => {
   const [showPassword, setShowPassword] = useState(false);
   const userTheme = useSelector(selectTheme);
-  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)'); // System preference
-
-  // const focusedBorderColor =
-  //   userTheme === 'light' ? '#1976d2' : 'rgb(99,230,120)';
-
-  // const textColor = userTheme === 'light' ? 'rgb(105, 105, 105)' : '#ffffff';
 
   const paperStyle = {
     padding: 20,
@@ -76,11 +70,8 @@ const SignIn = ({ handleChange }) => {
     event.preventDefault();
   };
 
-  // const mode = prefersDarkMode ? 'dark' : 'light';
   const mode = userTheme;
   let theme = useMemo(() => {
-    // const mode = prefersDarkMode ? 'dark' : 'light';
-
     return createTheme({
       palette: {
         mode: mode,
@@ -174,13 +165,6 @@ const SignIn = ({ handleChange }) => {
                       }
                       label="Password"
                       autoComplete="on"
-                      // sx={{
-                      //   '&.Mui-focused .css-1d3z3hw-MuiOutlinedInput-notchedOutline':
-                      //     {
-                      //       borderColor: focusedBorderColor,
-                      //     },
-                      //   color: textColor,
-                      // }}
                     />
                   </FormControl>
                   <StyledErrorMessage name="password" component="span" />
