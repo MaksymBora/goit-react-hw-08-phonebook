@@ -128,8 +128,10 @@ export const Header = () => {
   const handleThemeChange = () => {
     if (currentTheme === 'light') {
       dispatch(handleDarkTheme());
+      setToggleTheme(true);
     } else {
       dispatch(handleLightTheme());
+      setToggleTheme(false);
     }
   };
 
@@ -182,7 +184,7 @@ export const Header = () => {
             label=""
             onClick={handleThemeChange}
             sx={{ m: 0 }}
-            checked={toggleTheme || currentTheme === 'dark'}
+            checked={toggleTheme || currentTheme === 'dark' ? true : false}
           />
         </WrapperTheme>
         {/* Mob */}
