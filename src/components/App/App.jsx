@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import { ThemeProvider } from 'styled-components';
 import { Layout } from "components/Layout/Layout";
-import AuthUserForm from 'components/LoginForm/Contaoner/Index';
+import AuthUserForm from 'components/LoginForm/Container/Index';
 import { useAuth } from 'hook';
 import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute.js/PrivateRoute';
