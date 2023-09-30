@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 
 export const AvatarWrapper = styled.div`
   display: flex;
-  gap: 35px;
+  gap: 70px;
 
   @media screen and (min-width: ${props => props.theme.media.m}) {
     gap: 135px;
