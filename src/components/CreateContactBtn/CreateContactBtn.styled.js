@@ -48,9 +48,9 @@ export const BtnText = styled.p`
 
 export const MobStyledLink = styled(Link)`
   text-decoration: 'none';
-  position: absolute;
-  right: 0;
-  bottom: -340px;
+  position: fixed;
+  right: 15px;
+  bottom: 50px;
   width: 70px;
   transition: box-shadow 250ms ease-in-out, opacity 250ms ease-in-out;
 
@@ -60,18 +60,6 @@ export const MobStyledLink = styled(Link)`
 
   div {
     background: linear-gradient(to right, #11998e, #38ef7d);
-  }
-
-  @media screen and (min-height: 271px) {
-    bottom: -160px;
-  }
-
-  @media screen and (min-height: 400px) {
-    bottom: -230px;
-  }
-
-  @media screen and (min-height: 550px) {
-    bottom: -370px;
   }
 
   @media screen and (min-width: ${props => props.theme.media.m}) {
