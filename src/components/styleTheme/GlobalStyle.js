@@ -10,7 +10,6 @@ body {
 	background: #ffffff;
 	margin: 0;
 	color: #696969;
- 
   }
 
 #root {
