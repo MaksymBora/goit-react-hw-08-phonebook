@@ -86,14 +86,16 @@ export const EditButton = styled.button`
   color: #fff;
   cursor: pointer;
   border: none;
-  transition: box-shadow 250ms ease-in-out;
+  transition: box-shadow 250ms ease-in-out, opacity 250ms ease-in-out;
 
   &:hover {
-    box-shadow: -1px 0px 8px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 8px -2px ${props => props.theme.colors.btns.shadow};
+    opacity: 0.9;
   }
 
   &:active {
-    box-shadow: -1px 0px 8px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 8px -2px ${props => props.theme.colors.btns.shadow};
+    opacity: 0.9;
   }
 `;
 
@@ -106,14 +108,16 @@ export const RemoveButton = styled.button`
   color: #fff;
   cursor: pointer;
   border: none;
-  transition: box-shadow 250ms ease-in-out;
+  transition: box-shadow 250ms ease-in-out, opacity 250ms ease-in-out;
 
   &:hover {
-    box-shadow: -1px 0px 8px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 8px -2px ${props => props.theme.colors.btns.shadow};
+    opacity: 0.9;
   }
 
   &:active {
-    box-shadow: -1px 0px 8px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 8px -2px ${props => props.theme.colors.btns.shadow};
+    opacity: 0.9;
   }
 `;
 

@@ -10,21 +10,21 @@ export const StyledForm = styled(Form)`
 
   div {
     width: 100%;
-    color: ${props => props.theme.colors.editContact.text};
+    /* color: ${props => props.theme.colors.editContact.text}; */
 
-    ::before {
+    /* ::before {
       border-color: ${props => props.theme.colors.editContact.formBorder};
     }
 
     ::after {
       border-color: ${props => props.theme.colors.editContact.hoverBorder};
-    }
+    } */
   }
 
   svg {
     width: 28px;
     height: 28px;
-    color: ${props => props.theme.colors.editContact.icons};
+    /* color: ${props => props.theme.colors.editContact.icons}; */
   }
 
   @media screen and (min-width: ${props => props.theme.media.m}) {
@@ -54,9 +54,9 @@ export const InputWrapper = styled.div`
   align-items: end;
   gap: 10px;
 
-  label {
+  /* label {
     color: ${props => props.theme.colors.editContact.icons};
-  }
+  } */
 `;
 
 export const Button = styled.button`
@@ -71,13 +71,15 @@ export const Button = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  transition: box-shadow 250ms ease-in-out;
+  transition: box-shadow 250ms ease-in-out, opacity 250ms ease-in-out;
 
   &:hover {
-    box-shadow: -1px 0px 8px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 8px -2px ${props => props.theme.colors.btns.shadow};
+    opacity: 0.9;
   }
 
   &:active {
-    box-shadow: -1px 0px 8px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 8px -2px ${props => props.theme.colors.btns.shadow};
+    opacity: 0.9;
   }
 `;

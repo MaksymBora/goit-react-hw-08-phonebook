@@ -25,6 +25,7 @@ export const lightColors = {
     paperShadow: 'rgba(89, 83, 83, 0.35)',
     radioActive: 'rgb(49, 189, 126)',
     contactsListBorder: 'rgba(0, 0, 0, 0.2)',
+    btnsHoverColor: 'rgba(0, 0, 0, 0.75)',
   },
 };
 
@@ -48,6 +49,7 @@ export const darkColors = {
     paperShadow: 'rgba(255, 255, 255, 0.25)',
     radioActive: 'rgb(49, 189, 126)',
     contactsListBorder: 'rgba(222, 223, 224, 0.2)',
+    btnsHoverColor: 'rgba(255, 255, 255, 0.55)',
   },
 };
 
@@ -96,6 +98,9 @@ export const lightTheme = {
       paperShadow: lightColors.colors.paperShadow,
       radioBorder: lightColors.colors.textPrimary,
       radioChecked: lightColors.colors.radioActive,
+    },
+    btns: {
+      shadow: lightColors.colors.btnsHoverColor,
     },
   },
   media,
@@ -146,6 +151,9 @@ export const darkTheme = {
       paperShadow: darkColors.colors.paperShadow,
       radioBorder: darkColors.colors.textPrimary,
       radioChecked: darkColors.colors.radioActive,
+    },
+    btns: {
+      shadow: darkColors.colors.btnsHoverColor,
     },
   },
   media,
