@@ -10,17 +10,15 @@ import {
 const NotFound = () => {
   return (
     <main>
-      <Container className="page-404">
+      <Container>
         <Wrapper>
-          <List className="page-404__redirect-list redirect-list">
-            <ListItem className="redirect-list__item">
-              <StyledLink to="/" className="redirect-list__link">
-                Home
-              </StyledLink>
+          <List>
+            <ListItem>
+              <StyledLink to="/">Home</StyledLink>
             </ListItem>
           </List>
 
-          <Text className="page-404__text">
+          <Text>
             404
             <span>Page not Found</span>
           </Text>

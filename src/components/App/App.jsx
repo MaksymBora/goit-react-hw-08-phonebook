@@ -1,4 +1,4 @@
-import {lazy, useEffect} from 'react'
+import { lazy, useEffect} from 'react'
 import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
@@ -14,11 +14,14 @@ import { selectTheme } from 'redux/userTheme/slice';
 import { setMainStyles } from 'components/styleTheme/setMainStyles';
 import NotFound from 'Pages/NotFound/NotFound';
 
+// import NotFound from 'Pages/NotFound/NotFound';
+
 const Home = lazy(() => import('../../Pages/Home'));
 const ContactDetails = lazy(() => import('../../Pages/ContactDetails/ContactDetails'));
 const PhoneView = lazy(() => import('../../Pages/PhoneView/PhoneView'));
 const ContactEdit = lazy(() => import('../../Pages/ContactEdit/ContactEdit'));
 const AddContacts = lazy(() => import('../../Pages/AddContacts/AddContacts'));
+// const NotFound = lazy(() => import('../../Pages/NotFound/NotFound'));
 
 export const App = () => {
 
@@ -30,7 +33,6 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  
     useEffect(() => {
     setMainStyles(userTheme);
     }, [userTheme]);
@@ -50,18 +52,20 @@ export const App = () => {
     </div>) : (
       <>
         <Routes>
-          <Route path="/" element={ <Layout /> }>
-            <Route index element={ <PrivateRoute component={ <Home /> } redirectTo="/login" /> } />
-            <Route path="contact/:id" element={ <PrivateRoute component={ <ContactDetails /> } redirectTo="/login" /> } >
-              <Route index element={ <PhoneView /> } />
-              <Route path="edit" element={ <ContactEdit /> } />
+            <Route path="/" element={ <Layout /> }>
+              <Route index element={ <PrivateRoute component={ <Home /> } redirectTo="/login" /> } />
+              <Route path="contact/:id" element={ <PrivateRoute component={ <ContactDetails /> } redirectTo="/login" /> } >
+                <Route index element={ <PhoneView /> } />
+                <Route path="edit" element={ <ContactEdit /> } />
+              </Route>
+              <Route path="addContact" element={ <PrivateRoute component={ <AddContacts /> } redirectTo="/login" /> } />
+              <Route path="login" element={ <RestrictedRoute component={ <AuthUserForm /> } redirectTo="/" /> } />
             </Route>
-            <Route path="addContact" element={ <PrivateRoute component={ <AddContacts /> } redirectTo="/login" /> } />
-            <Route path="login" element={ <RestrictedRoute component={ <AuthUserForm /> } redirectTo="/" /> } />
-            </Route>
-            <Route path='*' element={ <NotFound/>} />
+          <Route path='*' element={ <NotFound/>} />
+      
         </Routes>
       </>
     ) }
     </ThemeProvider>)
+
 }
