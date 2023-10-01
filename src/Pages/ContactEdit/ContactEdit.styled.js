@@ -10,21 +10,11 @@ export const StyledForm = styled(Form)`
 
   div {
     width: 100%;
-    /* color: ${props => props.theme.colors.editContact.text}; */
-
-    /* ::before {
-      border-color: ${props => props.theme.colors.editContact.formBorder};
-    }
-
-    ::after {
-      border-color: ${props => props.theme.colors.editContact.hoverBorder};
-    } */
   }
 
   svg {
     width: 28px;
     height: 28px;
-    /* color: ${props => props.theme.colors.editContact.icons}; */
   }
 
   @media screen and (min-width: ${props => props.theme.media.m}) {
@@ -53,10 +43,6 @@ export const InputWrapper = styled.div`
   display: flex;
   align-items: end;
   gap: 10px;
-
-  /* label {
-    color: ${props => props.theme.colors.editContact.icons};
-  } */
 `;
 
 export const Button = styled.button`
