@@ -12,7 +12,6 @@ export const Filter = () => {
   const nameFromFilter = useSelector(selectFilteredContact);
   const userTheme = useSelector(selectTheme);
   const location = useLocation();
-  console.log(location.pathname);
 
   const dispatch = useDispatch();
 

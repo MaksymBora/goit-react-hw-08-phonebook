@@ -70,6 +70,7 @@ const SignIn = ({ handleChange }) => {
     event.preventDefault();
   };
 
+  // MUI Theme
   const mode = userTheme;
   let theme = useMemo(() => {
     return createTheme({
