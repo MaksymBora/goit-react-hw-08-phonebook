@@ -12,6 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { darkTheme, lightTheme } from 'components/styleTheme/theme';
 import { selectTheme } from 'redux/userTheme/slice';
 import { setMainStyles } from 'components/styleTheme/setMainStyles';
+import NotFound from 'Pages/NotFound/NotFound';
 
 const Home = lazy(() => import('../../Pages/Home'));
 const ContactDetails = lazy(() => import('../../Pages/ContactDetails/ContactDetails'));
@@ -57,7 +58,8 @@ export const App = () => {
             </Route>
             <Route path="addContact" element={ <PrivateRoute component={ <AddContacts /> } redirectTo="/login" /> } />
             <Route path="login" element={ <RestrictedRoute component={ <AuthUserForm /> } redirectTo="/" /> } />
-          </Route>
+            </Route>
+            <Route path='*' element={ <RestrictedRoute component={ <NotFound /> } redirectTo="/" /> }/>
         </Routes>
       </>
     ) }
