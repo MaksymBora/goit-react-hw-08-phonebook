@@ -17,8 +17,8 @@ import {
 import { TbArrowBackUp } from 'react-icons/tb';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { getAllContactsThunk, removeContact } from 'redux/contacts/thunk';
-import CircularProgress from '@mui/material/CircularProgress';
 import { selectContacts } from 'redux/contacts/selectors';
+import { Loader } from 'components/Loader/Loader';
 
 const ContactDetails = () => {
   const location = useLocation();
@@ -48,18 +48,7 @@ const ContactDetails = () => {
   };
 
   if (!currentContact) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          marginTop: '100px',
-        }}
-      >
-        <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-          <CircularProgress color="success" />
-        </div>
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
@@ -93,20 +82,7 @@ const ContactDetails = () => {
       <hr style={{ marginTop: '20px', marginBottom: '40px' }} />
 
       <div>
-        <Suspense
-          fallback={
-            <div
-              style={{
-                display: 'flex',
-                marginTop: '100px',
-              }}
-            >
-              <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-                <CircularProgress color="success" />
-              </div>
-            </div>
-          }
-        >
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </div>
