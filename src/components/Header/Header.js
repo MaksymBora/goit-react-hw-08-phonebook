@@ -9,6 +9,7 @@ import {
   WrapperTheme,
   StyledSwitcher,
 } from './Header.styled';
+import { ThemeProvider } from '@mui/material/styles';
 import { Filter } from 'components/Filter/Filter';
 import { CreateContact } from 'components/CreateContactBtn/CreateContactBtn';
 import { Link } from 'react-router-dom';
@@ -25,8 +26,8 @@ import {
   selectTheme,
 } from 'redux/userTheme/slice';
 import Switch from '@mui/material/Switch';
-import { useMediaQuery } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { createTheme, useMediaQuery } from '@mui/material';
+import { useEffect, useMemo, useState } from 'react';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -46,7 +47,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+        backgroundColor: theme.palette.mode === 'dark' ? '#90caf9' : '#aab4be',
       },
     },
   },
@@ -133,6 +134,16 @@ export const Header = () => {
     }
   }, [prefersDarkMode, dispatch]);
 
+  // MUI Theme
+  const mode = currentTheme;
+  let theme = useMemo(() => {
+    return createTheme({
+      palette: {
+        mode: mode,
+      },
+    });
+  }, [mode]);
+
   return (
     <HeaderWrapper>
       <LogoAndBtnsWrapper>
@@ -158,14 +169,15 @@ export const Header = () => {
               <Title>Phonebook</Title>
             </Wrapper>
           </Link>
-
-          <StyledSwitcher
-            control={<MaterialUISwitch sx={{ m: 1 }} />}
-            label=""
-            onClick={handleThemeChange}
-            sx={{ m: 0 }}
-            checked={toggleTheme || currentTheme === 'dark' ? true : false}
-          />
+          <ThemeProvider theme={theme}>
+            <StyledSwitcher
+              control={<MaterialUISwitch sx={{ m: 1 }} />}
+              label=""
+              onClick={handleThemeChange}
+              sx={{ m: 0 }}
+              checked={toggleTheme || currentTheme === 'dark' ? true : false}
+            />
+          </ThemeProvider>
         </WrapperTheme>
         {/* Mob */}
         <LoginBtnsWrapper className="LoginBtnsWrapper">
